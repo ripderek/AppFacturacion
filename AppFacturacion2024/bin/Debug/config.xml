@@ -1,0 +1,6 @@
+<Config>
+    <Servidor>192.168.56.1</Servidor>
+    <NombreBaseDatos>FACT2024</NombreBaseDatos>
+    <Usuario>sa</Usuario>
+    <Password>123456</Password>
+</Config>
