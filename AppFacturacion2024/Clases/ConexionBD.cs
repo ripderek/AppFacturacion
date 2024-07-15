@@ -342,5 +342,23 @@ namespace AppFacturacion2024.Clases
             }
             return XML_Factura;
         }
+        public int ObtenerIdTipoUsuarioPorNombre(string tipo)
+        {
+            int idTipoUsuario = -1;
+            string sql = "SP_Obtener_ID_Tipo_Usuario";
+            List<SqlParameter> parametros = new List<SqlParameter>
+             {
+                new SqlParameter("@TIPO", tipo)
+             };
+            DataTable resultado = Cargar_Data_Table(sql, parametros);
+
+            if (resultado.Rows.Count > 0)
+            {
+                idTipoUsuario = Convert.ToInt32(resultado.Rows[0]["ID_TIPO_USUARIO"]);
+            }
+
+            return idTipoUsuario;
+        }
+
     }
 }
