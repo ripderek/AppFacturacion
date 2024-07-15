@@ -346,6 +346,8 @@ namespace AppFacturacion2024 {
             
             private global::System.Data.DataColumn columnTOTAL;
             
+            private global::System.Data.DataColumn columnID_VENDEDOR;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public FacturaDataTable() {
@@ -509,6 +511,14 @@ namespace AppFacturacion2024 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_VENDEDORColumn {
+                get {
+                    return this.columnID_VENDEDOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -560,7 +570,8 @@ namespace AppFacturacion2024 {
                         string SUBTOTAL, 
                         string SUBTOTAL_CON_DESCUENTO, 
                         string IVA_A_SUMAR, 
-                        string TOTAL) {
+                        string TOTAL, 
+                        string ID_VENDEDOR) {
                 FacturaRow rowFacturaRow = ((FacturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         COD_FACTURA,
@@ -578,7 +589,8 @@ namespace AppFacturacion2024 {
                         SUBTOTAL,
                         SUBTOTAL_CON_DESCUENTO,
                         IVA_A_SUMAR,
-                        TOTAL};
+                        TOTAL,
+                        ID_VENDEDOR};
                 rowFacturaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFacturaRow);
                 return rowFacturaRow;
@@ -617,6 +629,7 @@ namespace AppFacturacion2024 {
                 this.columnSUBTOTAL_CON_DESCUENTO = base.Columns["SUBTOTAL_CON_DESCUENTO"];
                 this.columnIVA_A_SUMAR = base.Columns["IVA_A_SUMAR"];
                 this.columnTOTAL = base.Columns["TOTAL"];
+                this.columnID_VENDEDOR = base.Columns["ID_VENDEDOR"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -654,6 +667,8 @@ namespace AppFacturacion2024 {
                 base.Columns.Add(this.columnIVA_A_SUMAR);
                 this.columnTOTAL = new global::System.Data.DataColumn("TOTAL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTOTAL);
+                this.columnID_VENDEDOR = new global::System.Data.DataColumn("ID_VENDEDOR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_VENDEDOR);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1369,6 +1384,22 @@ namespace AppFacturacion2024 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ID_VENDEDOR {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactura.ID_VENDEDORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ID_VENDEDOR\' de la tabla \'Factura\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactura.ID_VENDEDORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCOD_FACTURANull() {
                 return this.IsNull(this.tableFactura.COD_FACTURAColumn);
             }
@@ -1557,6 +1588,18 @@ namespace AppFacturacion2024 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTOTALNull() {
                 this[this.tableFactura.TOTALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsID_VENDEDORNull() {
+                return this.IsNull(this.tableFactura.ID_VENDEDORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetID_VENDEDORNull() {
+                this[this.tableFactura.ID_VENDEDORColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -362,6 +362,11 @@ namespace AppFacturacion2024
             descuento.InnerText = discount.ToString();
             cliente.AppendChild(descuento);
 
+            XmlElement usuariovendedor = doc.CreateElement("UsuarioVendedor");
+            usuariovendedor.InnerText = ManejoSesion.Instance.UsuarioVendedor;
+            cliente.AppendChild(usuariovendedor);
+
+
             // Crear el nodo Items
             XmlElement items = doc.CreateElement("Items");
             root.AppendChild(items);

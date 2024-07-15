@@ -20,6 +20,8 @@ namespace AppFacturacion2024
             txtNombreUsuario.Text =Usuario.nombres;
             txtUsuarioTipo.Text = Usuario.tipo;
             //aqui colocar un switch para controlar los tipos de usuario para mostar las opciones del menu
+            if (Usuario.tipo.Trim() != "ADMIN")
+                btnUsuarios.Visible = false;
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -113,6 +115,17 @@ namespace AppFacturacion2024
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            verSubmenu(MenuUsuarios);
+        }
+
+        private void btnConsultarUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new ConsultaUsuario());
+
         }
     }
 }

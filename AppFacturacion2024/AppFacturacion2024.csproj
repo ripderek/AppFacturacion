@@ -102,6 +102,7 @@
     <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\ConexionBD.cs" />
     <Compile Include="Clases\Factura.cs" />
+    <Compile Include="Clases\ManejoSesion.cs" />
     <Compile Include="Clases\Productos.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="ConsultaClientes.cs">
@@ -116,6 +117,12 @@
     <Compile Include="ConsultaProductos.Designer.cs">
       <DependentUpon>ConsultaProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaUsuario.Designer.cs">
+      <DependentUpon>ConsultaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearEditarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +134,12 @@
     </Compile>
     <Compile Include="CrearEditarProductos.Designer.cs">
       <DependentUpon>CrearEditarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearEditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearEditarUsuario.Designer.cs">
+      <DependentUpon>CrearEditarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="EditarProductoDetalleFactura.cs">
       <SubType>Form</SubType>
@@ -184,11 +197,17 @@
     <EmbeddedResource Include="ConsultaProductos.resx">
       <DependentUpon>ConsultaProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaUsuario.resx">
+      <DependentUpon>ConsultaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearEditarClientes.resx">
       <DependentUpon>CrearEditarClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEditarProductos.resx">
       <DependentUpon>CrearEditarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearEditarUsuario.resx">
+      <DependentUpon>CrearEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditarProductoDetalleFactura.resx">
       <DependentUpon>EditarProductoDetalleFactura.cs</DependentUpon>
