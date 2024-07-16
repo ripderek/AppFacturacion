@@ -21,26 +21,47 @@ namespace AppFacturacion2024
 
         private void txtAceptar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataTable InfoUsuario=  Usuario.Verificar_Inicio_Sesion(txtUsuario.Text, txtContrasena.Text);
-                if (InfoUsuario != null && InfoUsuario.Rows.Count > 0 && InfoUsuario.Columns.Count > 0)
-                {
-                   //Si esque el DataTable contiene filas y columnas entonces mostrar el formulario del menu
-                    Form1 form1 = new Form1();
-                    this.Close();
-                    form1.Show();
-                }
-               }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
+            InicioSesion();
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void InicioSesion()
+        {
+            try
+            {
+                DataTable InfoUsuario = Usuario.Verificar_Inicio_Sesion(txtUsuario.Text, txtContrasena.Text);
+                if (InfoUsuario != null && InfoUsuario.Rows.Count > 0 && InfoUsuario.Columns.Count > 0)
+                {
+                    //Si esque el DataTable contiene filas y columnas entonces mostrar el formulario del menu
+                    Form1 form1 = new Form1();
+                    this.Close();
+                    form1.Show();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                InicioSesion();
+
+            }
+        }
+
+        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                InicioSesion();
+            }
         }
     }
 }

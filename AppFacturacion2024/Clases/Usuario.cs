@@ -58,7 +58,7 @@ namespace AppFacturacion2024.Clases
                 id_tipo_usuario = int.Parse(fila[6].ToString());
             }
         }
-        static public void CrearUsuario()
+        static public bool CrearUsuario()
         {
             string sql = "SP_CREAR_USUARIO";
             // crear parametros
@@ -73,8 +73,9 @@ namespace AppFacturacion2024.Clases
                 new System.Data.SqlClient.SqlParameter("@ID_TIPO_USUARIO", id_tipo_usuario),
             };
             conexion.ConcatenacionCadena(sql, parametros);
+            return conexion.TransaccionCompleta;
         }
-        static public void EditarUsuario()  
+        static public bool EditarUsuario()  
         {
             string sql = "SP_EDITAR_USUARIO";
             // crear parametros
@@ -89,6 +90,7 @@ namespace AppFacturacion2024.Clases
                 new System.Data.SqlClient.SqlParameter("@ID_TIPO_USUARIO", id_tipo_usuario),
             };
             conexion.ConcatenacionCadena(sql, parametros);
+            return conexion.TransaccionCompleta;
         }
         static public DataTable Listar_usuarios()
         {

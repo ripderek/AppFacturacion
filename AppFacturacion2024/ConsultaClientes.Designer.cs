@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.crearClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaClientes));
+            this.panelcontenedor = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.dtListaClientes = new System.Windows.Forms.DataGridView();
@@ -45,62 +42,33 @@
             this.menuOpciones = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.btnFacturacion = new System.Windows.Forms.Button();
+            this.panelOpciones = new System.Windows.Forms.Panel();
+            this.panelcontenedor.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListaClientes)).BeginInit();
             this.menuOpciones.SuspendLayout();
+            this.panelOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // panelcontenedor
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(852, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.crearClienteToolStripMenuItem,
-            this.salirToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
-            this.toolStripMenuItem1.Text = "Menu";
-            // 
-            // crearClienteToolStripMenuItem
-            // 
-            this.crearClienteToolStripMenuItem.Name = "crearClienteToolStripMenuItem";
-            this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.crearClienteToolStripMenuItem.Text = "Crear Cliente";
-            this.crearClienteToolStripMenuItem.Click += new System.EventHandler(this.crearClienteToolStripMenuItem_Click);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(852, 33);
-            this.panel1.TabIndex = 3;
+            this.panelcontenedor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelcontenedor.Controls.Add(this.panelOpciones);
+            this.panelcontenedor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelcontenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelcontenedor.Name = "panelcontenedor";
+            this.panelcontenedor.Size = new System.Drawing.Size(852, 55);
+            this.panelcontenedor.TabIndex = 3;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtBuscador);
             this.panel2.Controls.Add(this.dtListaClientes);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 57);
+            this.panel2.Location = new System.Drawing.Point(0, 55);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(852, 472);
+            this.panel2.Size = new System.Drawing.Size(852, 474);
             this.panel2.TabIndex = 4;
             // 
             // txtBuscador
@@ -127,14 +95,14 @@
             this.dtListaClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtListaClientes.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dtListaClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Identificacion,
@@ -145,7 +113,7 @@
             this.dtListaClientes.Location = new System.Drawing.Point(0, 0);
             this.dtListaClientes.Name = "dtListaClientes";
             this.dtListaClientes.ReadOnly = true;
-            this.dtListaClientes.Size = new System.Drawing.Size(852, 472);
+            this.dtListaClientes.Size = new System.Drawing.Size(852, 474);
             this.dtListaClientes.TabIndex = 0;
             this.dtListaClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListaClientes_CellDoubleClick);
             this.dtListaClientes.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtListaClientes_CellMouseDown);
@@ -197,6 +165,36 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
+            // btnFacturacion
+            // 
+            this.btnFacturacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
+            this.btnFacturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFacturacion.FlatAppearance.BorderSize = 0;
+            this.btnFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFacturacion.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold);
+            this.btnFacturacion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFacturacion.Image = ((System.Drawing.Image)(resources.GetObject("btnFacturacion.Image")));
+            this.btnFacturacion.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFacturacion.Location = new System.Drawing.Point(12, 8);
+            this.btnFacturacion.Name = "btnFacturacion";
+            this.btnFacturacion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnFacturacion.Size = new System.Drawing.Size(192, 37);
+            this.btnFacturacion.TabIndex = 14;
+            this.btnFacturacion.Text = "Agregar";
+            this.btnFacturacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFacturacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFacturacion.UseVisualStyleBackColor = false;
+            this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
+            // 
+            // panelOpciones
+            // 
+            this.panelOpciones.Controls.Add(this.btnFacturacion);
+            this.panelOpciones.Location = new System.Drawing.Point(0, 4);
+            this.panelOpciones.Name = "panelOpciones";
+            this.panelOpciones.Size = new System.Drawing.Size(245, 51);
+            this.panelOpciones.TabIndex = 15;
+            this.panelOpciones.Visible = false;
+            // 
             // ConsultaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,33 +202,25 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(852, 529);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.panelcontenedor);
             this.Name = "ConsultaClientes";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ConsultaClientes";
             this.Load += new System.EventHandler(this.ConsultaClientes_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConsultaClientes_KeyDown);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.panelcontenedor.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListaClientes)).EndInit();
             this.menuOpciones.ResumeLayout(false);
+            this.panelOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem crearClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelcontenedor;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dtListaClientes;
         private System.Windows.Forms.ContextMenuStrip menuOpciones;
@@ -241,5 +231,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.TextBox txtBuscador;
+        private System.Windows.Forms.Button btnFacturacion;
+        private System.Windows.Forms.Panel panelOpciones;
     }
 }

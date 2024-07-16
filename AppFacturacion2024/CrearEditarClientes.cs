@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -53,7 +54,6 @@ namespace AppFacturacion2024
             if (e.KeyCode == Keys.Enter)
             {
                 CrearEditarCliente();
-
             }
         }
 
@@ -69,21 +69,13 @@ namespace AppFacturacion2024
             objCliente.TELEFONO_ = txtTelefono.Text;
             if (accion_)
             {
-                try { objCliente.CrearCliente(); this.Close(); }
-                catch (Exception ne)
-                {
-                    MessageBox.Show(ne.Message);
-                }
-
-
-            }
+                bool identificador = objCliente.CrearCliente();
+                if (identificador) this.Close();
+    }
             else
             {
-                try { objCliente.Editar_Cliente(); this.Close(); }
-                catch (Exception ne)
-                {
-                    MessageBox.Show(ne.Message);
-                }
+                bool identificador = objCliente.Editar_Cliente();
+                if (identificador) this.Close();
             }
         }
 

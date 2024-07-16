@@ -16,14 +16,14 @@ namespace AppFacturacion2024
         Clientes obj_clientes = new Clientes();
         //la accion= true es para saber si se va a retornar datos del datagridview en caso que se use para listar en la factura 
         bool accion_ = false;
-        public ConsultaClientes(bool acccion=false)
+        public ConsultaClientes(bool acccion=false, bool veropciones = true)
         {
             InitializeComponent();
             this.KeyPreview = true;
             accion_ = acccion;
             dtListaClientes.KeyDown += new KeyEventHandler(dtListaClientes_KeyDown);
             dtListaClientes.CellEnter += new DataGridViewCellEventHandler(dtListaClientes_CellEnter);
-
+            if (veropciones) panelOpciones.Visible = true;
         }
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -63,7 +63,8 @@ namespace AppFacturacion2024
 
         private void dtListaClientes_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+           
+                if (e.Button == MouseButtons.Right && !accion_)
             {
                 try
                 {
@@ -215,6 +216,14 @@ namespace AppFacturacion2024
         {
             currentRowIndex = e.RowIndex;
             currentColumnIndex = e.ColumnIndex;
+        }
+
+       
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(true);
+            ventana_crear_editar_clientes.ShowDialog();
+            ConsultaClientesLista();
         }
     }
 }

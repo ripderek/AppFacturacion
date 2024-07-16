@@ -601,3 +601,5 @@ C:\Users\Alexxander\Desktop\AppFacturacion-main\AppFacturacion-main\AppFacturaci
 C:\Users\Alexxander\Desktop\AppFacturacion-main\AppFacturacion-main\AppFacturacion2024\obj\Debug\AppFacturacion2024.csproj.CopyComplete
 C:\Users\Alexxander\Desktop\AppFacturacion-main\AppFacturacion-main\AppFacturacion2024\obj\Debug\AppFacturacion2024.CrearEditarUsuario.resources
 C:\Users\Alexxander\Desktop\AppFacturacion-main\AppFacturacion-main\AppFacturacion2024\obj\Debug\AppFacturacion2024.ConsultaUsuario.resources
+C:\Users\casti\Desktop\GSCFacturacion\AppFacturacion2024\obj\Debug\AppFacturacion2024.ConsultaUsuario.resources
+C:\Users\casti\Desktop\GSCFacturacion\AppFacturacion2024\obj\Debug\AppFacturacion2024.CrearEditarUsuario.resources

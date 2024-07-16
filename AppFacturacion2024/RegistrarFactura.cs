@@ -25,7 +25,7 @@ namespace AppFacturacion2024
         {
  
             //ConsultaCLientes.ShowDialog();
-            using (ConsultaClientes frmClientes = new ConsultaClientes(true))
+            using (ConsultaClientes frmClientes = new ConsultaClientes(true,false))
             {
                 if (frmClientes.ShowDialog() == DialogResult.OK)
                 {
@@ -41,7 +41,7 @@ namespace AppFacturacion2024
         private void button1_Click(object sender, EventArgs e)
         {
             //Listar productos 
-            using (ConsultaProductos frmProductos = new ConsultaProductos(true))
+            using (ConsultaProductos frmProductos = new ConsultaProductos(true,false))
             {
                 if (frmProductos.ShowDialog() == DialogResult.OK)
                 {
@@ -425,6 +425,11 @@ namespace AppFacturacion2024
             int ultimaFactura = objFactura.ObtenerUltimaFactura(txtCodigoCliente.Text);
             VizualizarFactura vizualizarFactura = new VizualizarFactura(ultimaFactura);
             vizualizarFactura.ShowDialog();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

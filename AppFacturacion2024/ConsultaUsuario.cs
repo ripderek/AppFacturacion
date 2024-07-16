@@ -90,8 +90,8 @@ namespace AppFacturacion2024
                     Usuario.nombres = row.Cells[1].Value.ToString();
                     Usuario.correo = row.Cells[2].Value.ToString();
                     Usuario.usuario = row.Cells[3].Value.ToString();
-                    Usuario.contraseña = row.Cells[4].Value.ToString();
-                    Usuario.tipo = row.Cells[5].Value.ToString();
+                    //Usuario.contraseña = row.Cells[4].Value.ToString();
+                    Usuario.tipo = row.Cells[4].Value.ToString();
                 }
                 e.Handled = true; 
             }
@@ -120,8 +120,8 @@ namespace AppFacturacion2024
                         Usuario.identificacion = row.Cells[1].Value.ToString();
                         Usuario.correo = row.Cells[2].Value.ToString();
                         Usuario.usuario = row.Cells[3].Value.ToString();
-                        Usuario.contraseña = row.Cells[4].Value.ToString();
-                        Usuario.tipo = row.Cells[5].Value.ToString();
+                        //Usuario.contraseña = row.Cells[4].Value.ToString();
+                        Usuario.tipo = row.Cells[4].Value.ToString();
                     }
                 }
                 catch (Exception ex)
@@ -145,11 +145,11 @@ namespace AppFacturacion2024
                 UsuarioNombre = row.Cells[1].Value.ToString(); 
                 UsuarioCorreo = row.Cells[2].Value.ToString(); 
                 UsuarioUsuario = row.Cells[3].Value.ToString(); 
-                UsuarioContraseña = row.Cells[4].Value.ToString(); 
-                UsuarioTipo = row.Cells[5].Value.ToString(); 
+               // UsuarioContraseña = row.Cells[4].Value.ToString(); 
+                UsuarioTipo = row.Cells[4].Value.ToString(); 
 
                 this.DialogResult = DialogResult.OK;
-                this.Close();
+               // this.Close();
             }
         }
 
@@ -161,7 +161,7 @@ namespace AppFacturacion2024
          Usuario.identificacion,
          Usuario.correo,
          Usuario.usuario,
-         Usuario.contraseña,
+         "",
          Usuario.tipo
      );
             ventana_crear_editar_usuario.ShowDialog();
@@ -188,6 +188,13 @@ namespace AppFacturacion2024
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            CrearEditarUsuario ventana_crear_editar_usuarios = new CrearEditarUsuario(true);
+            ventana_crear_editar_usuarios.ShowDialog();
+            ConsultaUsuarioLista();
         }
     }
 }

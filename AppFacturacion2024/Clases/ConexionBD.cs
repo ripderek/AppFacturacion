@@ -16,7 +16,7 @@ namespace AppFacturacion2024.Clases
     {
         public System.Data.SqlClient.SqlConnection Conexion = new System.Data.SqlClient.SqlConnection();
         public SqlConnection con;
-       
+        public bool TransaccionCompleta = false;
         public bool Abrir()
         {
             string Servidor = "";
@@ -103,7 +103,7 @@ namespace AppFacturacion2024.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Información: " + ex.Message + "", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("1Información: " + ex.Message + "", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         //Sobrecarga 
@@ -153,24 +153,25 @@ namespace AppFacturacion2024.Clases
                             oCommand.Parameters.Add(parametro);
                         }
                     }
-
-                    return oCommand.ExecuteReader();
+                        TransaccionCompleta = true;
+                        return oCommand.ExecuteReader();
                 }
                 }
                 
             }
             catch (Exception ex)
             {
+                TransaccionCompleta = false;
                 if (ex.Message.Substring(0, 34) == "Valor de tiempo de espera caducado")
                 {
-                    MessageBox.Show("Vuelva  a Intentar ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("2Vuelva  a Intentar ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     Cerrar();
                     return null;
 
                 }
                 else
                 {
-                    MessageBox.Show("Vuelva  a Intentar..: " + ex.Message, "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(ex.Message, "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     Cerrar();
                 }
                     

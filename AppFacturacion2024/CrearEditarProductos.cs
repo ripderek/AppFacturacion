@@ -14,7 +14,6 @@ namespace AppFacturacion2024
 {
     public partial class CrearEditarProductos : Form
     {
-
         Productos objProducto = new Productos();
         private bool accion_ = false;
         //si la accion es true entonces se va a crear el cliente 
@@ -33,10 +32,8 @@ namespace AppFacturacion2024
                 lblEtiqueta.Text = "Editar Producto";
                 txtCodigoProducto.Text = CODIGO;
                 txtProductos.Text = PRODUCTO;
-                txtPrecioUnitario.Text = PRECIO_UNITARIO;
-               
+                txtPrecioUnitario.Text = PRECIO_UNITARIO;  
             }
-
             accion_ = accion;
         }
 
@@ -47,19 +44,13 @@ namespace AppFacturacion2024
             objProducto.CODIGO_ = txtCodigoProducto.Text;
             if (accion_)
             {
-                try { objProducto.CrearProducto(); this.Close(); }
-                catch (Exception ne)
-                {
-                    MessageBox.Show(ne.Message);
-                }
+                bool completado= objProducto.CrearProducto();
+                if (completado) this.Close(); 
             }
             else
             {
-                try { objProducto.Editar_Producto(); this.Close(); }
-                catch (Exception ne)
-                {
-                    MessageBox.Show(ne.Message);
-                }
+                bool completado = objProducto.Editar_Producto();
+                if (completado) this.Close();
             }
         }
     }

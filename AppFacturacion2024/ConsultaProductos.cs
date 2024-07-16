@@ -15,11 +15,12 @@ namespace AppFacturacion2024
     {
         Productos obj_productos = new Productos();
         bool accion_ = false;
-        public ConsultaProductos(bool accion=false)
+        public ConsultaProductos(bool accion=false,bool veropciones = true)
         {
             InitializeComponent();
             this.KeyPreview = true;
             accion_ = accion;
+            if (veropciones) panelOpciones.Visible = true;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,7 +60,7 @@ namespace AppFacturacion2024
 
         private void dtListaProdutos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right && !accion_)
             {
                 try
                 {
@@ -182,6 +183,13 @@ namespace AppFacturacion2024
             {
                 MessageBox.Show("No se pudo obtener datos de la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            CrearEditarProductos ventana_crear_editar_productos = new CrearEditarProductos(true);
+            ventana_crear_editar_productos.ShowDialog();
+            ConsultaProductosLista();
         }
     }
 }

@@ -76,7 +76,7 @@
             this.txtUsuario.MaxLength = 10;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(355, 31);
-            this.txtUsuario.TabIndex = 17;
+            this.txtUsuario.TabIndex = 5;
             // 
             // lblCorreo
             // 
@@ -95,7 +95,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(171, 175);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(355, 31);
-            this.txtCorreo.TabIndex = 15;
+            this.txtCorreo.TabIndex = 4;
             // 
             // lblIdentificacion
             // 
@@ -115,7 +115,7 @@
             this.txtIdentificacion.MaxLength = 10;
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(355, 31);
-            this.txtIdentificacion.TabIndex = 13;
+            this.txtIdentificacion.TabIndex = 3;
             // 
             // txtCodigoUsuario
             // 
@@ -124,7 +124,7 @@
             this.txtCodigoUsuario.Name = "txtCodigoUsuario";
             this.txtCodigoUsuario.ReadOnly = true;
             this.txtCodigoUsuario.Size = new System.Drawing.Size(300, 31);
-            this.txtCodigoUsuario.TabIndex = 11;
+            this.txtCodigoUsuario.TabIndex = 1;
             this.txtCodigoUsuario.Visible = false;
             // 
             // lblEtiqueta
@@ -155,7 +155,7 @@
             this.txtNombres.Location = new System.Drawing.Point(172, 86);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(355, 31);
-            this.txtNombres.TabIndex = 22;
+            this.txtNombres.TabIndex = 2;
             // 
             // lblTipousuario
             // 
@@ -185,10 +185,11 @@
             this.txtContraseña.Location = new System.Drawing.Point(171, 276);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(355, 31);
-            this.txtContraseña.TabIndex = 24;
+            this.txtContraseña.TabIndex = 6;
             // 
             // cbxTipo
             // 
+            this.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipo.FormattingEnabled = true;
             this.cbxTipo.Items.AddRange(new object[] {
             "ADMIN",

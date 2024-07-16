@@ -26,7 +26,7 @@ namespace AppFacturacion2024.Clases
 
 
         //funcion para crear productos
-        public void CrearProducto()
+        public bool CrearProducto()
         {
             string sql = "SP_InsertarProducto";
 
@@ -38,9 +38,10 @@ namespace AppFacturacion2024.Clases
              };
 
             ConcatenacionCadena(sql, parametros);
+            return TransaccionCompleta;
         }
         //funcion para editar PRODUCTO
-        public void Editar_Producto()
+        public bool Editar_Producto()
         {
             //string SQL = "EXEC SP_EditarProducto '" + CODIGO_ + "', '" + PRODUCTO_ + "', '" + PRECIO_UNITARIO_ + "'";
             //ConcatenacionCadena(SQL);
@@ -55,6 +56,7 @@ namespace AppFacturacion2024.Clases
              };
 
             ConcatenacionCadena(sql, parametros);
+            return TransaccionCompleta;
         }
         //funcion para eliminar el PRODUCTO 
         public void Eliminar_Producto()
