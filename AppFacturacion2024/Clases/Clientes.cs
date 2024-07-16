@@ -24,7 +24,7 @@ namespace AppFacturacion2024.Clases
         public string ESTADO_ { get => ESTADO; set => ESTADO = value; }
 
         //funcion para crear el cliente 
-        public void CrearCliente()
+        public bool CrearCliente()
         {
             //ConcatenacionCadena("EXEC SP_Insertar_Cliente '" + IDENTIFICACION_ + "' ,'" + NOMBRES_ + "',  '" + CORREO_ + "' , '" + TELEFONO_ + "'"); 
             //string SQL = "EXEC SP_EliminarProducto '" + CODIGO_ + "'";
@@ -41,9 +41,10 @@ namespace AppFacturacion2024.Clases
              };
 
             ConcatenacionCadena(sql, parametros);
+            return TransaccionCompleta;
         }
         //funcion para editar el cliente
-        public void Editar_Cliente()
+        public bool Editar_Cliente()
         {
             //ConcatenacionCadena("EXEC SP_Actualizar_Cliente '" + IDENTIFICACION_ + "' , '" + NOMBRES_ + "', '" + CORREO_ + "' , '" + TELEFONO_ + "'");
             string sql = "SP_Actualizar_Cliente";
@@ -56,6 +57,7 @@ namespace AppFacturacion2024.Clases
                   new System.Data.SqlClient.SqlParameter("@Telefono", TELEFONO_),
              };
             ConcatenacionCadena(sql, parametros);
+            return TransaccionCompleta;
         }
         //funcion para eliminar el cliente 
         public void Eliminar_Cliente()

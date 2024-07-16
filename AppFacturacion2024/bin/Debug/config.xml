@@ -1,6 +1,6 @@
 <Config>
     <Servidor>.</Servidor>
-    <NombreBaseDatos>FACT2024</NombreBaseDatos>
+    <NombreBaseDatos>FACT2024-15-07</NombreBaseDatos>
     <Usuario>sa</Usuario>
     <Password>123456</Password>
 </Config>

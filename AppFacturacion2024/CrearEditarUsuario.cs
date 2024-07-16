@@ -65,42 +65,28 @@ namespace AppFacturacion2024
             Usuario.usuario = txtUsuario.Text;
             Usuario.contraseña = txtContraseña.Text;
 
-            // Obtnemos el ID del tipo de usuario seleccionado en el ComboBox para agregar o editar
-            string tipoUsuarioSeleccionado = cbxTipo.SelectedItem.ToString();
-            Usuario.id_tipo_usuario = Usuario.conexion.ObtenerIdTipoUsuarioPorNombre(tipoUsuarioSeleccionado);
 
+
+            if (cbxTipo.SelectedItem != null)
+            {
+                // Obtenemos el ID del tipo de usuario seleccionado en el ComboBox para agregar o editar
+                string tipoUsuarioSeleccionado = cbxTipo.SelectedItem.ToString();
+                Usuario.id_tipo_usuario = Usuario.conexion.ObtenerIdTipoUsuarioPorNombre(tipoUsuarioSeleccionado);
+            }
             if (Usuario.id_tipo_usuario == -1)
             {
                 MessageBox.Show("Error: Tipo de Usuario no encontrado en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-           
             if (accion_) 
             {
-                try
-                {
-                    Usuario.CrearUsuario();
-                    MessageBox.Show("Usuario creado correctamente.");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al crear usuario: " + ex.Message);
-                }
+                bool indicador = Usuario.CrearUsuario();
+                if (indicador) this.Close();
             }
             else 
             {
-                try
-                {
-                    Usuario.EditarUsuario();
-                    MessageBox.Show("Usuario editado correctamente.");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al editar usuario: " + ex.Message);
-                }
+                bool indicador = Usuario.EditarUsuario();
+                if (indicador) this.Close();
             }
         }
 

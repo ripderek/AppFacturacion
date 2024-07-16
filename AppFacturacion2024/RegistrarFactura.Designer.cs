@@ -65,6 +65,7 @@
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListaProdutos)).BeginInit();
@@ -82,7 +83,7 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.txtCodigoCliente);
             this.groupBox1.Controls.Add(this.btnAñadirCliente);
-            this.groupBox1.Location = new System.Drawing.Point(12, 6);
+            this.groupBox1.Location = new System.Drawing.Point(12, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(776, 69);
             this.groupBox1.TabIndex = 0;
@@ -162,7 +163,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dtListaProdutos);
-            this.panel1.Location = new System.Drawing.Point(12, 142);
+            this.panel1.Location = new System.Drawing.Point(12, 182);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 185);
             this.panel1.TabIndex = 1;
@@ -230,7 +231,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
             this.button1.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(12, 90);
+            this.button1.Location = new System.Drawing.Point(12, 119);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 35);
             this.button1.TabIndex = 21;
@@ -241,7 +242,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(151, 90);
+            this.label5.Location = new System.Drawing.Point(151, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 22;
@@ -250,7 +251,7 @@
             // txtProductoCod
             // 
             this.txtProductoCod.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 7.75F, System.Drawing.FontStyle.Bold);
-            this.txtProductoCod.Location = new System.Drawing.Point(236, 87);
+            this.txtProductoCod.Location = new System.Drawing.Point(236, 116);
             this.txtProductoCod.Name = "txtProductoCod";
             this.txtProductoCod.ReadOnly = true;
             this.txtProductoCod.Size = new System.Drawing.Size(89, 21);
@@ -259,7 +260,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(357, 93);
+            this.label6.Location = new System.Drawing.Point(357, 122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 24;
@@ -268,7 +269,7 @@
             // txtPrecioUnitario
             // 
             this.txtPrecioUnitario.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 7.75F, System.Drawing.FontStyle.Bold);
-            this.txtPrecioUnitario.Location = new System.Drawing.Point(454, 87);
+            this.txtPrecioUnitario.Location = new System.Drawing.Point(454, 116);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
             this.txtPrecioUnitario.ReadOnly = true;
             this.txtPrecioUnitario.Size = new System.Drawing.Size(89, 21);
@@ -277,7 +278,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(151, 115);
+            this.label7.Location = new System.Drawing.Point(151, 144);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 26;
@@ -286,7 +287,7 @@
             // txtProducto
             // 
             this.txtProducto.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 7.75F, System.Drawing.FontStyle.Bold);
-            this.txtProducto.Location = new System.Drawing.Point(236, 115);
+            this.txtProducto.Location = new System.Drawing.Point(236, 144);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.ReadOnly = true;
             this.txtProducto.Size = new System.Drawing.Size(89, 21);
@@ -295,7 +296,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(357, 123);
+            this.label8.Location = new System.Drawing.Point(357, 152);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 28;
@@ -304,7 +305,7 @@
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 7.75F, System.Drawing.FontStyle.Bold);
-            this.txtCantidad.Location = new System.Drawing.Point(454, 115);
+            this.txtCantidad.Location = new System.Drawing.Point(454, 144);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(89, 21);
             this.txtCantidad.TabIndex = 27;
@@ -315,7 +316,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.Highlight;
             this.button2.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.Window;
-            this.button2.Location = new System.Drawing.Point(665, 90);
+            this.button2.Location = new System.Drawing.Point(665, 119);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(123, 35);
             this.button2.TabIndex = 29;
@@ -327,7 +328,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(565, 341);
+            this.label9.Location = new System.Drawing.Point(565, 384);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 31;
@@ -337,7 +338,7 @@
             // 
             this.txtSubtotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSubtotal.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 7.75F, System.Drawing.FontStyle.Bold);
-            this.txtSubtotal.Location = new System.Drawing.Point(633, 333);
+            this.txtSubtotal.Location = new System.Drawing.Point(633, 376);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.ReadOnly = true;
             this.txtSubtotal.Size = new System.Drawing.Size(155, 21);
@@ -347,7 +348,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(565, 375);
+            this.label10.Location = new System.Drawing.Point(565, 418);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 13);
             this.label10.TabIndex = 33;
@@ -357,7 +358,7 @@
             // 
             this.txtDescuento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescuento.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 7.75F, System.Drawing.FontStyle.Bold);
-            this.txtDescuento.Location = new System.Drawing.Point(633, 367);
+            this.txtDescuento.Location = new System.Drawing.Point(633, 410);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(155, 21);
             this.txtDescuento.TabIndex = 32;
@@ -367,7 +368,7 @@
             // 
             this.sss.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sss.AutoSize = true;
-            this.sss.Location = new System.Drawing.Point(529, 407);
+            this.sss.Location = new System.Drawing.Point(529, 450);
             this.sss.Name = "sss";
             this.sss.Size = new System.Drawing.Size(98, 13);
             this.sss.TabIndex = 35;
@@ -377,7 +378,7 @@
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 7.75F, System.Drawing.FontStyle.Bold);
-            this.txtTotal.Location = new System.Drawing.Point(633, 399);
+            this.txtTotal.Location = new System.Drawing.Point(633, 442);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(155, 21);
@@ -411,7 +412,7 @@
             this.button3.BackColor = System.Drawing.Color.DarkOrange;
             this.button3.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.Window;
-            this.button3.Location = new System.Drawing.Point(392, 375);
+            this.button3.Location = new System.Drawing.Point(392, 418);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 50);
             this.button3.TabIndex = 37;
@@ -420,12 +421,27 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Variable Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.label4.Location = new System.Drawing.Point(765, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 32);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "X";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // RegistrarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 480);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.sss);
             this.Controls.Add(this.txtTotal);
@@ -498,5 +514,6 @@
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
     }
 }

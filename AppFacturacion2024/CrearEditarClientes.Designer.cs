@@ -59,7 +59,7 @@
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.ReadOnly = true;
             this.txtCodigoCliente.Size = new System.Drawing.Size(300, 31);
-            this.txtCodigoCliente.TabIndex = 1;
+            this.txtCodigoCliente.TabIndex = 20;
             this.txtCodigoCliente.Visible = false;
             // 
             // txtNombres
@@ -68,7 +68,7 @@
             this.txtNombres.Location = new System.Drawing.Point(165, 137);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(355, 31);
-            this.txtNombres.TabIndex = 3;
+            this.txtNombres.TabIndex = 2;
             // 
             // label1
             // 
@@ -98,7 +98,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(165, 190);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(355, 31);
-            this.txtCorreo.TabIndex = 4;
+            this.txtCorreo.TabIndex = 3;
             // 
             // label4
             // 
@@ -118,7 +118,7 @@
             this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(355, 31);
-            this.txtTelefono.TabIndex = 5;
+            this.txtTelefono.TabIndex = 4;
             // 
             // txtAceptar
             // 
@@ -128,7 +128,7 @@
             this.txtAceptar.Location = new System.Drawing.Point(358, 313);
             this.txtAceptar.Name = "txtAceptar";
             this.txtAceptar.Size = new System.Drawing.Size(162, 62);
-            this.txtAceptar.TabIndex = 6;
+            this.txtAceptar.TabIndex = 5;
             this.txtAceptar.Text = "Crear";
             this.txtAceptar.UseVisualStyleBackColor = false;
             this.txtAceptar.Click += new System.EventHandler(this.txtAceptar_Click);
@@ -151,7 +151,7 @@
             this.txtIdentificacion.MaxLength = 10;
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(355, 31);
-            this.txtIdentificacion.TabIndex = 2;
+            this.txtIdentificacion.TabIndex = 1;
             // 
             // CrearEditarClientes
             // 
