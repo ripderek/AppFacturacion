@@ -90,5 +90,17 @@ namespace AppFacturacion2024.Clases
              };
             return Cargar_Data_Table(sql, parametros);
         }
+        public DataTable Buscar_Cliente_columna_especifica(string Palabra_Clave, string Columna)
+        {
+            //return Cargar_Data_Table("EXEC [SP_Buscar_Cliente] '"+Palabra_Clave+"'");
+            string sql = "SP_BUSQUEDA_ESPECIFICA_CLIENTES";
+            //MessageBox.Show(Palabra_Clave+" - "+Columna);
+            var parametros = new List<System.Data.SqlClient.SqlParameter>
+             {
+                      new System.Data.SqlClient.SqlParameter("@Palabra_Clave", Palabra_Clave.Trim()),
+                      new System.Data.SqlClient.SqlParameter("@Columna", Columna.Trim())
+             };
+            return Cargar_Data_Table(sql, parametros);
+        }
     }
 }

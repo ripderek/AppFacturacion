@@ -33,27 +33,7 @@ namespace AppFacturacion2024
         {
             
             DataTable dataTable = obj_clientes.Listar_Clientes();
-            if (dataTable != null)
-            {
-                // dataGridViewClientes.DataSource = dataTable; para enviarla directamente al data source 
-                Console.WriteLine(dataTable);
-                dtListaClientes.Rows.Clear();
-             
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    DataRow row = dataTable.Rows[i];
-                    dtListaClientes.Rows.Add();
-
-                    for (int j = 0; j < row.ItemArray.Length-1; j++)
-                    {
-                        dtListaClientes[j, i].Value = row[j].ToString().Trim();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se pudo obtener datos de la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LlenarGrid(dataTable);
         }
 
         private void ConsultaClientes_Load(object sender, EventArgs e)
@@ -155,37 +135,12 @@ namespace AppFacturacion2024
                 Busqueda_Palabra_Clave();
                 txtBuscador.Visible = false;
                 txtBuscador.Text = "";
-              
             }
         }
         private void Busqueda_Palabra_Clave()
         {
             DataTable dataTable = obj_clientes.Buscar_Cliente(txtBuscador.Text);
-            if (dataTable != null)
-            {
-                // dataGridViewClientes.DataSource = dataTable; para enviarla directamente al data source 
-                Console.WriteLine(dataTable);
-                dtListaClientes.Rows.Clear();
-
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    DataRow row = dataTable.Rows[i];
-                    dtListaClientes.Rows.Add();
-
-                    for (int j = 0; j < row.ItemArray.Length - 1; j++)
-                    {
-                        dtListaClientes[j, i].Value = row[j].ToString().Trim();
-                    }
-                }
-            }
-            else if (dataTable.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay datos");
-            }
-            else
-            {
-                MessageBox.Show("No se pudo obtener datos de la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LlenarGrid(dataTable);
         }
 
         private void dtListaClientes_KeyDown(object sender, KeyEventArgs e)
@@ -224,6 +179,48 @@ namespace AppFacturacion2024
             CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(true);
             ventana_crear_editar_clientes.ShowDialog();
             ConsultaClientesLista();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Buscador();
+        }
+        private void Buscador()
+        {
+            //controlar que el select del combobox no este vacio o nullo skere modo diablo
+            if (cmbBuscar.SelectedItem != null)
+            {
+                //MessageBox.Show(cmbBuscar.SelectedItem.ToString());
+                //accionar el buscador
+                BusquedaEspeficia(txtBuscar.Text, cmbBuscar.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un filtro de busqueda");
+            }
+        }
+        private void BusquedaEspeficia(string Palabra_Clave, string Columna)
+        {
+            DataTable dataTable = obj_clientes.Buscar_Cliente_columna_especifica(Palabra_Clave, Columna);
+            LlenarGrid(dataTable);
+        }
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Buscador();
+            }
+        }
+        private void LlenarGrid(DataTable dataTable)
+        {
+            if (dataTable != null)
+            {
+                dtListaClientes.DataSource = dataTable; //para enviarla directamente al data source 
+            }
+            else
+            {
+                MessageBox.Show("No se pudo obtener datos de la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

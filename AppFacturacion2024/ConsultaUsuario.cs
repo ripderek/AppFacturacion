@@ -35,26 +35,7 @@ namespace AppFacturacion2024
         private void ConsultaUsuarioLista()
         {
             DataTable dataTable = Usuario.Listar_usuarios();
-
-            if (dataTable != null && dataTable.Rows.Count > 0)
-            {
-                dtListaUsuario.Rows.Clear();
-
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    DataRow row = dataTable.Rows[i];
-                    dtListaUsuario.Rows.Add();
-
-                    for (int j = 0; j < row.ItemArray.Length; j++)
-                    {
-                        dtListaUsuario[j, i].Value = row[j]?.ToString()?.Trim();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se pudo obtener datos de la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LlenarGrid(dataTable);      
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -195,6 +176,59 @@ namespace AppFacturacion2024
             CrearEditarUsuario ventana_crear_editar_usuarios = new CrearEditarUsuario(true);
             ventana_crear_editar_usuarios.ShowDialog();
             ConsultaUsuarioLista();
+        }
+        private void LlenarGrid(DataTable dataTable)
+        {
+            if (dataTable != null)
+            {
+                dtListaUsuario.DataSource = dataTable; //para enviarla directamente al data source 
+            }
+            else
+            {
+                MessageBox.Show("No se pudo obtener datos de la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Buscador();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Buscador();
+        }
+        private void Buscador()
+        {
+            //controlar que el select del combobox no este vacio o nullo skere modo diablo
+            if (cmbBuscar.SelectedItem != null)
+            {
+                //MessageBox.Show(cmbBuscar.SelectedItem.ToString());
+                //accionar el buscador
+                BusquedaEspeficia(txtBuscar.Text, cmbBuscar.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un filtro de busqueda");
+            }
+        }
+        private void BusquedaEspeficia(string Palabra_Clave, string Columna)
+        {
+            DataTable dataTable = Usuario.Buscar_Usuario_columna_especifica(Palabra_Clave, Columna);
+            LlenarGrid(dataTable);
+        }
+
+        private void ConsultaUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.R)
+            {
+                ConsultaUsuarioLista();
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
         }
     }
 }
