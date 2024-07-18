@@ -96,6 +96,19 @@ namespace AppFacturacion2024.Clases
         {
             return conexion.Cargar_Data_Table("EXEC SP_Mostrar_Usuarios;");
         }
+        //Buscar_Usuario_columna_especifica
+        static public DataTable Buscar_Usuario_columna_especifica(string Palabra_Clave, string Columna)
+        {
+            //return Cargar_Data_Table("[SP_Buscar_Producto]'" + Palabra_Clave + "'");
+            string sql = "SP_BUSQUEDA_ESPECIFICA_USUARIOS";
+
+            var parametros = new List<System.Data.SqlClient.SqlParameter>
+             {
+                      new System.Data.SqlClient.SqlParameter("@Palabra_Clave", Palabra_Clave),
+                      new System.Data.SqlClient.SqlParameter("@Columna", Columna)
+             };
+            return conexion.Cargar_Data_Table(sql, parametros);
+        }
 
         static public void EliminarUsuario()
         {

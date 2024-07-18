@@ -26,27 +26,7 @@ namespace AppFacturacion2024
         private void ConsultaFacturasLista()
         {
             DataTable dataTable = obj_facturas.Listar_Facturas();
-            if (dataTable != null)
-            {
-                // dataGridViewClientes.DataSource = dataTable; para enviarla directamente al data source 
-                Console.WriteLine(dataTable);
-                dtLisaFacturas.Rows.Clear();
-
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    DataRow row = dataTable.Rows[i];
-                    dtLisaFacturas.Rows.Add();
-
-                    for (int j = 0; j < row.ItemArray.Length ; j++)
-                    {
-                        dtLisaFacturas[j, i].Value = row[j].ToString().Trim();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se pudo obtener datos de la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LlenarGrid(dataTable);
         }
 
         private void ConsultaFacturas_Load(object sender, EventArgs e)
@@ -147,26 +127,44 @@ namespace AppFacturacion2024
         private void Busqueda_Palabra_Clave()
         {
             DataTable dataTable = obj_facturas.Buscar_Factura(txtBuscador.Text);
+            LlenarGrid(dataTable);
+        }
+        private void Buscador()
+        {
+            //controlar que el select del combobox no este vacio o nullo skere modo diablo
+            if (cmbBuscar.SelectedItem != null)
+            {
+                //MessageBox.Show(cmbBuscar.SelectedItem.ToString());
+                //accionar el buscador
+                BusquedaEspeficia(txtBuscar.Text, cmbBuscar.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un filtro de busqueda");
+            }
+        }
+        private void BusquedaEspeficia(string Palabra_Clave, string Columna)
+        {
+            DataTable dataTable = obj_facturas.Buscar_Factura_columna_especifica(Palabra_Clave, Columna);
+            LlenarGrid(dataTable);
+        }
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Buscador();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Buscador();
+        }
+        private void LlenarGrid(DataTable dataTable)
+        {
             if (dataTable != null)
             {
-                // dataGridViewClientes.DataSource = dataTable; para enviarla directamente al data source 
-                Console.WriteLine(dataTable);
-                dtLisaFacturas.Rows.Clear();
-
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    DataRow row = dataTable.Rows[i];
-                    dtLisaFacturas.Rows.Add();
-
-                    for (int j = 0; j < row.ItemArray.Length - 1; j++)
-                    {
-                        dtLisaFacturas[j, i].Value = row[j].ToString().Trim();
-                    }
-                }
-            }
-            else if (dataTable.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay datos");
+                dtLisaFacturas.DataSource = dataTable; //para enviarla directamente al data source 
             }
             else
             {

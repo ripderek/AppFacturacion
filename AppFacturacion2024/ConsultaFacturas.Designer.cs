@@ -29,30 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaFacturas));
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtLisaFacturas = new System.Windows.Forms.DataGridView();
-            this.CODFacturas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CODCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Establecimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroAutorizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Identificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.menuOpciones = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtLisaFacturas)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             this.menuOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,9 +53,9 @@
             // 
             this.panel2.Controls.Add(this.dtLisaFacturas);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 57);
+            this.panel2.Location = new System.Drawing.Point(0, 70);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 393);
+            this.panel2.Size = new System.Drawing.Size(800, 380);
             this.panel2.TabIndex = 8;
             // 
             // dtLisaFacturas
@@ -72,133 +65,88 @@
             this.dtLisaFacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtLisaFacturas.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtLisaFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtLisaFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CODFacturas,
-            this.CODCliente,
-            this.Establecimiento,
-            this.Sucursal,
-            this.FechaEmision,
-            this.NumeroAutorizacion,
-            this.NombreCliente,
-            this.Identificacion,
-            this.Correo,
-            this.Direccion,
-            this.Descuento,
-            this.Iva});
             this.dtLisaFacturas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtLisaFacturas.Location = new System.Drawing.Point(0, 0);
             this.dtLisaFacturas.Name = "dtLisaFacturas";
             this.dtLisaFacturas.ReadOnly = true;
-            this.dtLisaFacturas.Size = new System.Drawing.Size(800, 393);
+            this.dtLisaFacturas.Size = new System.Drawing.Size(800, 380);
             this.dtLisaFacturas.TabIndex = 0;
             this.dtLisaFacturas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtLisaFacturas_CellDoubleClick);
             this.dtLisaFacturas.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtLisaFacturas_CellMouseDown);
             // 
-            // CODFacturas
-            // 
-            this.CODFacturas.HeaderText = "COD Facturas";
-            this.CODFacturas.Name = "CODFacturas";
-            this.CODFacturas.ReadOnly = true;
-            // 
-            // CODCliente
-            // 
-            this.CODCliente.HeaderText = "COD Cliente";
-            this.CODCliente.Name = "CODCliente";
-            this.CODCliente.ReadOnly = true;
-            // 
-            // Establecimiento
-            // 
-            this.Establecimiento.HeaderText = "Establecimiento";
-            this.Establecimiento.Name = "Establecimiento";
-            this.Establecimiento.ReadOnly = true;
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            // 
-            // FechaEmision
-            // 
-            this.FechaEmision.HeaderText = "Fecha Emision";
-            this.FechaEmision.Name = "FechaEmision";
-            this.FechaEmision.ReadOnly = true;
-            // 
-            // NumeroAutorizacion
-            // 
-            this.NumeroAutorizacion.HeaderText = "Numero Autorizacion";
-            this.NumeroAutorizacion.Name = "NumeroAutorizacion";
-            this.NumeroAutorizacion.ReadOnly = true;
-            // 
-            // NombreCliente
-            // 
-            this.NombreCliente.HeaderText = "Nombre Cliente";
-            this.NombreCliente.Name = "NombreCliente";
-            this.NombreCliente.ReadOnly = true;
-            // 
-            // Identificacion
-            // 
-            this.Identificacion.HeaderText = "Identificacion";
-            this.Identificacion.Name = "Identificacion";
-            this.Identificacion.ReadOnly = true;
-            // 
-            // Correo
-            // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.Name = "Descuento";
-            this.Descuento.ReadOnly = true;
-            // 
-            // Iva
-            // 
-            this.Iva.HeaderText = "Iva";
-            this.Iva.Name = "Iva";
-            this.Iva.ReadOnly = true;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 33);
+            this.panel1.Size = new System.Drawing.Size(800, 70);
             this.panel1.TabIndex = 7;
             // 
-            // menuStrip1
+            // panel3
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.txtBuscar);
+            this.panel3.Controls.Add(this.btnBuscar);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.cmbBuscar);
+            this.panel3.Location = new System.Drawing.Point(358, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(430, 48);
+            this.panel3.TabIndex = 22;
             // 
-            // toolStripMenuItem1
+            // txtBuscar
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
-            this.toolStripMenuItem1.Text = "Menu";
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(187, 8);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(182, 27);
+            this.txtBuscar.TabIndex = 18;
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
-            // salirToolStripMenuItem
+            // btnBuscar
             // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(375, 4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(46, 41);
+            this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnBuscar.TabIndex = 20;
+            this.btnBuscar.TabStop = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Buscar:";
+            // 
+            // cmbBuscar
+            // 
+            this.cmbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBuscar.FormattingEnabled = true;
+            this.cmbBuscar.Items.AddRange(new object[] {
+            "COD_FACTURA",
+            "COD_CLIENTE",
+            "NUMERO_AUTORIZACION",
+            "NOMBRE_CLIENTE",
+            "IDENTIFICACION_CLIENTE",
+            "CORREO_CLIENTE",
+            "DIRECCION_CLIENTE",
+            "ID_VENDEDOR"});
+            this.cmbBuscar.Location = new System.Drawing.Point(60, 13);
+            this.cmbBuscar.Name = "cmbBuscar";
+            this.cmbBuscar.Size = new System.Drawing.Size(121, 21);
+            this.cmbBuscar.TabIndex = 16;
             // 
             // menuOpciones
             // 
@@ -236,15 +184,16 @@
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
             this.Name = "ConsultaFacturas";
             this.Text = "ConsultaFacturas";
             this.Load += new System.EventHandler(this.ConsultaFacturas_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConsultaFacturas_KeyDown);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtLisaFacturas)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             this.menuOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -256,23 +205,13 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dtLisaFacturas;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip menuOpciones;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CODFacturas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CODCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Establecimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaEmision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroAutorizacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Identificacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Iva;
         private System.Windows.Forms.TextBox txtBuscador;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.PictureBox btnBuscar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbBuscar;
     }
 }
