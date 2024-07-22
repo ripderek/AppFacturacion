@@ -67,12 +67,13 @@ namespace AppFacturacion2024
                     menuOpciones.Show(cellLocation);
                     DataGridViewRow row = dtListaUsuario.Rows[currentRowIndex];
 
-                    Usuario.identificacion = row.Cells[0].Value.ToString();
-                    Usuario.nombres = row.Cells[1].Value.ToString();
-                    Usuario.correo = row.Cells[2].Value.ToString();
-                    Usuario.usuario = row.Cells[3].Value.ToString();
+                    Usuario.id_usuario = int.Parse(row.Cells[0].Value.ToString());
+                    Usuario.identificacion = row.Cells[1].Value.ToString();
+                    Usuario.nombres = row.Cells[2].Value.ToString();
+                    Usuario.correo = row.Cells[3].Value.ToString();
+                    Usuario.usuario = row.Cells[4].Value.ToString();
                     //Usuario.contraseña = row.Cells[4].Value.ToString();
-                    Usuario.tipo = row.Cells[4].Value.ToString();
+                    Usuario.tipo = row.Cells[5].Value.ToString();
                 }
                 e.Handled = true; 
             }
@@ -97,12 +98,13 @@ namespace AppFacturacion2024
                         menuOpciones.Show(Cursor.Position);
                         DataGridViewRow row = dtListaUsuario.Rows[e.RowIndex];
 
-                        Usuario.nombres = row.Cells[0].Value.ToString();
-                        Usuario.identificacion = row.Cells[1].Value.ToString();
-                        Usuario.correo = row.Cells[2].Value.ToString();
-                        Usuario.usuario = row.Cells[3].Value.ToString();
+                        Usuario.id_usuario = int.Parse(row.Cells[0].Value.ToString());
+                        Usuario.nombres = row.Cells[1].Value.ToString();
+                        Usuario.identificacion = row.Cells[2].Value.ToString();
+                        Usuario.correo = row.Cells[3].Value.ToString();
+                        Usuario.usuario = row.Cells[4].Value.ToString();
                         //Usuario.contraseña = row.Cells[4].Value.ToString();
-                        Usuario.tipo = row.Cells[4].Value.ToString();
+                        Usuario.tipo = row.Cells[5].Value.ToString();
                     }
                 }
                 catch (Exception ex)
@@ -137,13 +139,14 @@ namespace AppFacturacion2024
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CrearEditarUsuario ventana_crear_editar_usuario = new CrearEditarUsuario(
-         false, 
-         Usuario.nombres,
-         Usuario.identificacion,
-         Usuario.correo,
-         Usuario.usuario,
-         "",
-         Usuario.tipo
+             false,
+             Usuario.id_usuario,
+             Usuario.nombres,
+             Usuario.identificacion,
+             Usuario.correo,
+             Usuario.usuario,
+             "",
+             Usuario.tipo
      );
             ventana_crear_editar_usuario.ShowDialog();
             ConsultaUsuarioLista(); 
