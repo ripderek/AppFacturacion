@@ -82,6 +82,7 @@ namespace AppFacturacion2024.Clases
 
             var parametros = new List<System.Data.SqlClient.SqlParameter>
             {
+                new System.Data.SqlClient.SqlParameter("@ID_USUARIO", id_usuario),
                 new System.Data.SqlClient.SqlParameter("@NOMBRES", nombres),
                 new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", identificacion),
                 new System.Data.SqlClient.SqlParameter("@CORREO", correo),
@@ -115,7 +116,7 @@ namespace AppFacturacion2024.Clases
             string sql = "SP_ELIMINAR_USUARIO";
             var parametros = new List<SqlParameter>
         {
-            new SqlParameter("@IDENTIFICACION", identificacion)
+            new SqlParameter("@ID_USUARIO", id_usuario)
         };
 
             try

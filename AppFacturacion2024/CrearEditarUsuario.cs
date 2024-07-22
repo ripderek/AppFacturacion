@@ -16,7 +16,7 @@ namespace AppFacturacion2024
         private bool accion_; 
         private ConexionBD conexion;
 
-        public CrearEditarUsuario(bool accion,string nombres="", string identificacion="", string correo="", string usuario="", string contraseña="", string tipo="")
+        public CrearEditarUsuario(bool accion, int id_usuario=0, string nombres="", string identificacion="", string correo="", string usuario="", string contraseña="", string tipo="")
         {
             InitializeComponent();
             this.KeyPreview = true;
@@ -31,9 +31,7 @@ namespace AppFacturacion2024
                 txtAceptar.Text = "Editar";
                 txtCodigoUsuario.Visible = true;
                 lblEtiqueta.Text = "Editar Usuario";
-                txtIdentificacion.Visible = false;
-                lblIdentificacion.Visible = false;
-                txtCodigoUsuario.Text = identificacion;
+                txtCodigoUsuario.Text = id_usuario.ToString();
                 txtIdentificacion.Text = identificacion;
                 txtNombres.Text = nombres;
                 txtCorreo.Text = correo;
@@ -85,6 +83,7 @@ namespace AppFacturacion2024
             }
             else 
             {
+                Usuario.id_usuario = int.Parse(txtCodigoUsuario.Text);
                 bool indicador = Usuario.EditarUsuario();
                 if (indicador) this.Close();
             }
