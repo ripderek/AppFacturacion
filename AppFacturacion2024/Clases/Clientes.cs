@@ -75,7 +75,8 @@ namespace AppFacturacion2024.Clases
 
         public DataTable Listar_Clientes()
         {
-            return Cargar_Data_Table("EXEC SP_Mostrar_Clientes;");
+            string sql = "SP_Mostrar_Clientes";
+            return Cargar_Data_Table(sql);
         }
 
         //funcion para buscar el cliente por palabra clave

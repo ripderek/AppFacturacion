@@ -103,8 +103,9 @@ namespace AppFacturacion2024
                         Usuario.identificacion = row.Cells[2].Value.ToString();
                         Usuario.correo = row.Cells[3].Value.ToString();
                         Usuario.usuario = row.Cells[4].Value.ToString();
-                        //Usuario.contraseña = row.Cells[4].Value.ToString();
                         Usuario.tipo = row.Cells[5].Value.ToString();
+                        Usuario.telefono = row.Cells[6].Value.ToString();
+                        Usuario.contraseña = row.Cells[7].Value.ToString();
                     }
                 }
                 catch (Exception ex)
@@ -145,8 +146,9 @@ namespace AppFacturacion2024
              Usuario.identificacion,
              Usuario.correo,
              Usuario.usuario,
-             "",
-             Usuario.tipo
+             Usuario. contraseña,
+             Usuario.tipo,
+             Usuario.telefono
      );
             ventana_crear_editar_usuario.ShowDialog();
             ConsultaUsuarioLista(); 

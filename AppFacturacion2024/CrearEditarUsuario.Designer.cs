@@ -43,6 +43,8 @@
             this.lblContraseña = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.cbxTipo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtAceptar
@@ -53,7 +55,7 @@
             this.txtAceptar.Location = new System.Drawing.Point(387, 396);
             this.txtAceptar.Name = "txtAceptar";
             this.txtAceptar.Size = new System.Drawing.Size(162, 62);
-            this.txtAceptar.TabIndex = 18;
+            this.txtAceptar.TabIndex = 8;
             this.txtAceptar.Text = "Crear";
             this.txtAceptar.UseVisualStyleBackColor = false;
             this.txtAceptar.Click += new System.EventHandler(this.txtAceptar_Click);
@@ -63,7 +65,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblUsuario.Location = new System.Drawing.Point(29, 237);
+            this.lblUsuario.Location = new System.Drawing.Point(29, 232);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(76, 20);
             this.lblUsuario.TabIndex = 21;
@@ -72,11 +74,11 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(171, 228);
+            this.txtUsuario.Location = new System.Drawing.Point(171, 223);
             this.txtUsuario.MaxLength = 10;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(355, 31);
-            this.txtUsuario.TabIndex = 5;
+            this.txtUsuario.TabIndex = 4;
             // 
             // lblCorreo
             // 
@@ -93,9 +95,10 @@
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Location = new System.Drawing.Point(171, 175);
+            this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(355, 31);
-            this.txtCorreo.TabIndex = 4;
+            this.txtCorreo.TabIndex = 3;
             // 
             // lblIdentificacion
             // 
@@ -115,7 +118,7 @@
             this.txtIdentificacion.MaxLength = 10;
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(355, 31);
-            this.txtIdentificacion.TabIndex = 3;
+            this.txtIdentificacion.TabIndex = 2;
             // 
             // txtCodigoUsuario
             // 
@@ -153,16 +156,17 @@
             // 
             this.txtNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombres.Location = new System.Drawing.Point(172, 86);
+            this.txtNombres.MaxLength = 50;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(355, 31);
-            this.txtNombres.TabIndex = 2;
+            this.txtNombres.TabIndex = 1;
             // 
             // lblTipousuario
             // 
             this.lblTipousuario.AutoSize = true;
             this.lblTipousuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipousuario.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblTipousuario.Location = new System.Drawing.Point(12, 340);
+            this.lblTipousuario.Location = new System.Drawing.Point(23, 365);
             this.lblTipousuario.Name = "lblTipousuario";
             this.lblTipousuario.Size = new System.Drawing.Size(135, 20);
             this.lblTipousuario.TabIndex = 27;
@@ -173,7 +177,7 @@
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContraseña.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblContraseña.Location = new System.Drawing.Point(29, 285);
+            this.lblContraseña.Location = new System.Drawing.Point(29, 275);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(107, 20);
             this.lblContraseña.TabIndex = 26;
@@ -182,10 +186,11 @@
             // txtContraseña
             // 
             this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(171, 276);
+            this.txtContraseña.Location = new System.Drawing.Point(171, 266);
+            this.txtContraseña.MaxLength = 50;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(355, 31);
-            this.txtContraseña.TabIndex = 6;
+            this.txtContraseña.TabIndex = 5;
             // 
             // cbxTipo
             // 
@@ -193,18 +198,40 @@
             this.cbxTipo.FormattingEnabled = true;
             this.cbxTipo.Items.AddRange(new object[] {
             "ADMIN",
-            "VND"});
-            this.cbxTipo.Location = new System.Drawing.Point(181, 339);
+            "VENDEDOR"});
+            this.cbxTipo.Location = new System.Drawing.Point(192, 364);
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.Size = new System.Drawing.Size(334, 21);
-            this.cbxTipo.TabIndex = 28;
+            this.cbxTipo.TabIndex = 7;
             this.cbxTipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxTipo_KeyDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.label2.Location = new System.Drawing.Point(29, 321);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 20);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Teléfono:";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(171, 312);
+            this.txtTelefono.MaxLength = 10;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(355, 31);
+            this.txtTelefono.TabIndex = 6;
             // 
             // CrearEditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 470);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.cbxTipo);
             this.Controls.Add(this.lblTipousuario);
             this.Controls.Add(this.lblContraseña);
@@ -245,5 +272,7 @@
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.ComboBox cbxTipo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTelefono;
     }
 }
