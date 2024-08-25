@@ -1,6 +1,6 @@
 <Config>
     <Servidor>.</Servidor>
-    <NombreBaseDatos>FacturacionBD</NombreBaseDatos>
+    <NombreBaseDatos>BD_Facturacion</NombreBaseDatos>
     <Usuario>sa</Usuario>
-    <Password>12345</Password>
+    <Password>123456</Password>
 </Config>

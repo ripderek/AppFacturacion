@@ -25,7 +25,7 @@ namespace AppFacturacion2024.Clases
         static public string tipo;
         static public string contraseña;
         static public int id_tipo_usuario;
-
+        static public string telefono;
 
 
         //Funcion para iniciar sesion y retornar los datos del usuario
@@ -71,6 +71,8 @@ namespace AppFacturacion2024.Clases
                 new System.Data.SqlClient.SqlParameter("@USUARIO", usuario),
                 new System.Data.SqlClient.SqlParameter("@CONTRASENA", contraseña),
                 new System.Data.SqlClient.SqlParameter("@ID_TIPO_USUARIO", id_tipo_usuario),
+                new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono),
+
             };
             conexion.ConcatenacionCadena(sql, parametros);
             return conexion.TransaccionCompleta;
@@ -88,6 +90,7 @@ namespace AppFacturacion2024.Clases
                 new System.Data.SqlClient.SqlParameter("@CORREO", correo),
                 new System.Data.SqlClient.SqlParameter("@USUARIO", usuario),
                 new System.Data.SqlClient.SqlParameter("@CONTRASENA", contraseña),
+                new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono),
                 new System.Data.SqlClient.SqlParameter("@ID_TIPO_USUARIO", id_tipo_usuario),
             };
             conexion.ConcatenacionCadena(sql, parametros);
@@ -95,7 +98,8 @@ namespace AppFacturacion2024.Clases
         }
         static public DataTable Listar_usuarios()
         {
-            return conexion.Cargar_Data_Table("EXEC SP_Mostrar_Usuarios;");
+            string sql = "SP_Mostrar_Usuarios";
+            return conexion.Cargar_Data_Table(sql);
         }
         //Buscar_Usuario_columna_especifica
         static public DataTable Buscar_Usuario_columna_especifica(string Palabra_Clave, string Columna)
