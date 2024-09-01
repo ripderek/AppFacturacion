@@ -16,9 +16,10 @@ namespace AppFacturacion2024
     {
         Clientes objCliente = new Clientes();
         private bool accion_ = false;
+        private int id_cliente_ = 0;
         //si la accion es true entonces se va a crear el cliente 
         //si la accion es falsa entonces se va a editar el cliente 
-        public CrearEditarClientes(bool accion,string IDENTIFICACION = "", string NOMBRES="", string CORREO = "", string TELEFONO = "")
+        public CrearEditarClientes(bool accion,string IDENTIFICACION = "", string NOMBRES="", string CORREO = "", string TELEFONO = "", int id_cliente=0)
         {
             InitializeComponent();
             this.KeyPreview = true;
@@ -28,11 +29,12 @@ namespace AppFacturacion2024
                 lblEtiqueta.Text = "Crear Cliente";
             else
             {
+                id_cliente_ = id_cliente;
                 txtAceptar.Text = "Editar";
                 txtCodigoCliente.Visible = true;
                 lblEtiqueta.Text = "Editar Cliente";
-                txtIdentificacion.Visible = false;
-                lblIdentificacion.Visible = false;
+                //txtIdentificacion.Visible = false;
+               // lblIdentificacion.Visible = false;
                 txtCodigoCliente.Text = IDENTIFICACION;
                 txtIdentificacion.Text = IDENTIFICACION;
                 txtNombres.Text = NOMBRES;
@@ -67,6 +69,7 @@ namespace AppFacturacion2024
             objCliente.NOMBRES_ = txtNombres.Text;
             objCliente.CORREO_ = txtCorreo.Text;
             objCliente.TELEFONO_ = txtTelefono.Text;
+            objCliente.CLIENTE_ID_ = id_cliente_;
             if (accion_)
             {
                 bool identificador = objCliente.CrearCliente();

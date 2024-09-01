@@ -20,7 +20,11 @@ namespace AppFacturacion2024
             InitializeComponent();
             this.KeyPreview = true;
             accion_ = accion;
-            if (veropciones) panelOpciones.Visible = true;
+            // if (veropciones) panelOpciones.Visible = true;
+            panelOpciones.Visible = true;
+            cmbBuscar.SelectedIndex = 1;
+            txtBuscar.Focus();
+            txtBuscar.Select();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -29,18 +33,20 @@ namespace AppFacturacion2024
         }
         private void ConsultaProductosLista()
         {
-            DataTable dataTable = obj_productos.Listar_Productos();
-            LlenarGrid(dataTable);
+            //DataTable dataTable = obj_productos.Listar_Productos();
+            //LlenarGrid(dataTable);
             
         }
         private void ConsultaProductos_Load(object sender, EventArgs e)
         {
-            ConsultaProductosLista();
-
+            txtBuscar.Focus();
+            txtBuscar.Select();
+            //ConsultaProductosLista();
         }
 
         private void dtListaProdutos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
+
             if (e.Button == MouseButtons.Right && !accion_)
             {
                 try
@@ -79,13 +85,17 @@ namespace AppFacturacion2024
         {
             CrearEditarProductos ventana_crear_editar_productos = new CrearEditarProductos(false, obj_productos.CODIGO_, obj_productos.PRODUCTO_, obj_productos.PRECIO_UNITARIO_);
             ventana_crear_editar_productos.ShowDialog();
-            ConsultaProductosLista();
+            //ConsultaProductosLista();
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             obj_productos.Eliminar_Producto();
             ConsultaProductosLista();
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
         public string CodigoProducto { get; private set; }
         public string ProductoNombre { get; private set; }
@@ -112,9 +122,10 @@ namespace AppFacturacion2024
         {
             if (e.Control && e.KeyCode == Keys.B)
             {
-                txtBuscador.Visible = true;
-                txtBuscador.BringToFront();
-                txtBuscador.Focus();
+                // txtBuscador.Visible = true;
+                // txtBuscador.BringToFront();
+                // txtBuscador.Focus();
+                txtBuscar.Select();
             }
             if (e.Control && e.KeyCode == Keys.R)
             {
@@ -146,7 +157,9 @@ namespace AppFacturacion2024
         {
             CrearEditarProductos ventana_crear_editar_productos = new CrearEditarProductos(true);
             ventana_crear_editar_productos.ShowDialog();
-            ConsultaProductosLista();
+            //ConsultaProductosLista();
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -159,6 +172,11 @@ namespace AppFacturacion2024
             if (e.KeyCode == Keys.Enter)
             {
                 Buscador();
+            }
+            if (e.KeyCode == Keys.Tab)
+            {
+                dtListaProdutos.Select();
+                dtListaProdutos.Focus();
             }
         }
         private void Buscador()
@@ -189,6 +207,34 @@ namespace AppFacturacion2024
             else
             {
                 MessageBox.Show("No se pudo obtener datos de la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dtListaProdutos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                txtBuscar.Select();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (accion_)
+                {
+                    // Verifica si hay una fila seleccionada en el DataGridView
+                    if (dtListaProdutos.CurrentRow != null)
+                    {
+                        int rowIndex = dtListaProdutos.CurrentRow.Index;
+
+                        // Obtén la información del cliente desde la fila seleccionada en el DataGridView usando los índices de las columnas
+                        CodigoProducto = dtListaProdutos.Rows[rowIndex].Cells[0].Value.ToString(); // Índice 0 para la columna ID
+                        ProductoNombre = dtListaProdutos.Rows[rowIndex].Cells[1].Value.ToString(); // Índice 1 para la columna Nombre
+                        PrecioUnitario = dtListaProdutos.Rows[rowIndex].Cells[2].Value.ToString(); // Índice 2 para la columna PrecioUnitario
+
+                        this.DialogResult = DialogResult.OK;
+                        // Cierra el formulario
+                        this.Close();
+                    }
+                }
             }
         }
     }

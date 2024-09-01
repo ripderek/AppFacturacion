@@ -16,12 +16,14 @@ namespace AppFacturacion2024.Clases
         private string CORREO;
         private string TELEFONO;
         private string ESTADO;
+        private int CLIENTE_ID;
 
         public string IDENTIFICACION_ { get => IDENTIFICACION; set => IDENTIFICACION = value; }
         public string NOMBRES_ { get => NOMBRES; set => NOMBRES = value; }
         public string CORREO_ { get => CORREO; set => CORREO = value; }
         public string TELEFONO_ { get => TELEFONO; set => TELEFONO = value; }
         public string ESTADO_ { get => ESTADO; set => ESTADO = value; }
+        public int CLIENTE_ID_ { get => CLIENTE_ID; set => CLIENTE_ID = value; }
 
         //funcion para crear el cliente 
         public bool CrearCliente()
@@ -55,6 +57,7 @@ namespace AppFacturacion2024.Clases
                   new System.Data.SqlClient.SqlParameter("@Nombres", NOMBRES_),
                   new System.Data.SqlClient.SqlParameter("@Correo", CORREO_),
                   new System.Data.SqlClient.SqlParameter("@Telefono", TELEFONO_),
+                  new System.Data.SqlClient.SqlParameter("@ID_Per", CLIENTE_ID_),
              };
             ConcatenacionCadena(sql, parametros);
             return TransaccionCompleta;
@@ -67,7 +70,7 @@ namespace AppFacturacion2024.Clases
             // Crear los parámetros
             var parametros = new List<System.Data.SqlClient.SqlParameter>
                 {
-                  new System.Data.SqlClient.SqlParameter("@Identificacion", IDENTIFICACION_),
+                  new System.Data.SqlClient.SqlParameter("@Persona_ID", CLIENTE_ID_),
              };
             ConcatenacionCadena(sql, parametros);
         }

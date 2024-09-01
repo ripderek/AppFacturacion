@@ -25,17 +25,20 @@ namespace AppFacturacion2024
             accion_ = acccion;
             dtListaUsuario.KeyDown += new KeyEventHandler(dtListaUsuario_KeyDown);
             dtListaUsuario.CellEnter += new DataGridViewCellEventHandler(dtListaUsuario_CellEnter);
+            cmbBuscar.SelectedIndex = 1;
+            txtBuscar.Select();
+
         }
 
         private void ConsultaUsuario_Load(object sender, EventArgs e)
         {
-            ConsultaUsuarioLista();
-            
+            //ConsultaUsuarioLista();
+            txtBuscar.Select();
         }
         private void ConsultaUsuarioLista()
         {
-            DataTable dataTable = Usuario.Listar_usuarios();
-            LlenarGrid(dataTable);      
+            //DataTable dataTable = Usuario.Listar_usuarios();
+            //LlenarGrid(dataTable);      
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -151,7 +154,9 @@ namespace AppFacturacion2024
              Usuario.telefono
      );
             ventana_crear_editar_usuario.ShowDialog();
-            ConsultaUsuarioLista(); 
+            //ConsultaUsuarioLista();
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
 
         private void ConsultaUsuario_MouseDown(object sender, MouseEventArgs e)
@@ -167,7 +172,9 @@ namespace AppFacturacion2024
                 try
                 {
                     Usuario.EliminarUsuario();
-                    ConsultaUsuarioLista(); 
+                    //ConsultaUsuarioLista();
+                    if (txtBuscar.Text.Length != 0)
+                        Buscador();
                 }
                 catch (Exception ex)
                 {
@@ -180,7 +187,10 @@ namespace AppFacturacion2024
         {
             CrearEditarUsuario ventana_crear_editar_usuarios = new CrearEditarUsuario(true);
             ventana_crear_editar_usuarios.ShowDialog();
-            ConsultaUsuarioLista();
+            //ConsultaUsuarioLista();
+            //refrescar los resultados de la busquedas si esque el cuadro de texto de busqueda contenia algo 
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
         private void LlenarGrid(DataTable dataTable)
         {
