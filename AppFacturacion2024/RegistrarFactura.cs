@@ -45,50 +45,34 @@ namespace AppFacturacion2024
             {
                 if (frmProductos.ShowDialog() == DialogResult.OK)
                 {
-                    txtProducto.Text = frmProductos.ProductoNombre;
-                    txtProductoCod.Text = frmProductos.CodigoProducto;
-                    txtPrecioUnitario.Text = frmProductos.PrecioUnitario;
+                    //hay una funcion que verifica si el producto ya se encuentra en el datagridview
+                    //verificar si el producto ya se encuentra dentro del datagriview
+                    /*
+                    if (VerificarIDproducto(txtProductoCod.Text))
+                    {
+                        MessageBox.Show("El producto ya se encuentra registado en la factura");
+                    }
+                    */
+                    //aqui enviar al datagridview directamente y realizar los calculos
+   
+                    dtListaProdutos.Rows.Add((dtListaProdutos.Rows.Count + 1).ToString(), frmProductos.CodigoProducto, frmProductos.ProductoNombre, frmProductos.PrecioUnitario,1, (1 * decimal.Parse(frmProductos.PrecioUnitario, CultureInfo.InvariantCulture)).ToString("N2"));
+                    limpiar_controles();
+                    //Calcular el subtotal sin descuento 
+                    Calcular_Subtotal();
                 }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            registrar_producto();
-
+            
         }
-        private void registrar_producto() 
-        {
-            //añadir los productos al datagridview
-            //validar que cantidad sea un numero y añadirlo al datagridview
-            if (verificar_controles())
-            {
-                if (verificar_numeros())
-                {
-                    //verificar si el producto ya se encuentra dentro del datagriview
-                    if (VerificarIDproducto(txtProductoCod.Text))
-                    {
-                        MessageBox.Show("El producto ya se encuentra registado en la factura");
-                    }
-                    else
-                    {
-                        dtListaProdutos.Rows.Add((dtListaProdutos.Rows.Count + 1).ToString(), txtProductoCod.Text, txtProducto.Text, txtPrecioUnitario.Text, txtCantidad.Text, (cantidad * precio).ToString("N2"));
-                        limpiar_controles();
-                        //Calcular el subtotal sin descuento 
-                        Calcular_Subtotal();
-                    }
-
-                }
-                else
-                    MessageBox.Show("Cantidad no valida");
-            }
-            else
-                MessageBox.Show("No se admiten valores vacíos");
-        }
+      
         private decimal cantidad;
         private decimal precio;
         private bool verificar_numeros()
         {
+            /*
             string _cantidad = txtCantidad.Text;
             string _precio = txtPrecioUnitario.Text;
             decimal numeroDecimal;
@@ -103,20 +87,25 @@ namespace AppFacturacion2024
                 precio = decimal.Parse(_precio, CultureInfo.InvariantCulture);
             else
                 return false;
+           
+            */
             return true;
         }
         private bool verificar_controles()
         {
+            /*
             if (string.IsNullOrWhiteSpace(txtCantidad.Text))
                 return false; 
+            */
             return true;
         }
         private void limpiar_controles()
-        {
+        {/*
             txtCantidad.Text = "";
             txtProducto.Text = "";
             txtProductoCod.Text = "";
             txtPrecioUnitario.Text = "";
+            */
         }
         private void Calcular_Subtotal()
         {
@@ -162,26 +151,51 @@ namespace AppFacturacion2024
             if (!string.IsNullOrWhiteSpace(descuentoText) && double.TryParse(descuentoText, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out _))
             {
                 descuento = decimal.Parse(descuentoText, System.Globalization.CultureInfo.InvariantCulture);
-                if (descuento > 0)
-                    precioDeVenta -= descuento;
+                if (descuento >= 0)
+                    //precioDeVenta -= descuento;
+                    precioDeVenta = precioDeVenta - ((precioDeVenta * descuento) / 100);
             }
 
             decimal tasaDeIVA = 0.15m;
             decimal baseImponible = precioDeVenta;
             decimal iva = baseImponible * tasaDeIVA;
             decimal precioTotalConIVA = baseImponible + iva;
-
+            txtDescuento.Text =decimal.Parse(descuentoText, System.Globalization.CultureInfo.InvariantCulture).ToString("N2");
             txtTotal.Text = precioTotalConIVA.ToString("N2");
         }
 
 
         private void txtDescuento_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                e.SuppressKeyPress = true;
-                CalcularIVA();
+                if (e.KeyCode == Keys.Enter)
+                {
+                    string descuentoText = txtDescuento.Text.Replace(',', '.');
+                    decimal descuento_ = decimal.Parse(descuentoText, System.Globalization.CultureInfo.InvariantCulture);
+
+                    if (descuento_ > 100 || descuento_ < 0)
+                    {
+                        MessageBox.Show("El descuento tiene que ser mayor igual a 0 y menor o igual a 100");
+                        txtDescuento.Text = "0";
+                        CalcularIVA();
+                        return;
+                    }
+                    else
+                    {
+                        e.SuppressKeyPress = true;
+                        CalcularIVA();
+                    }
+
+                }
             }
+            catch (Exception ne)
+            {
+                txtDescuento.Text = "0";
+                CalcularIVA();
+                MessageBox.Show("El campo descuento no puede contener letras, caracteres especiales o espacios vacios    "+ne.Message);
+            }
+           
         }
         string codigoProducto = "";
         string cantidad_producto = "";
@@ -258,11 +272,7 @@ namespace AppFacturacion2024
 
         private void txtCantidad_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                registrar_producto();
-            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -410,10 +420,10 @@ namespace AppFacturacion2024
             txtCodigoCliente.Text = "";
             txtCorreo.Text = "";
             txtNombre.Text = "";
-            txtProductoCod.Text = "";
-            txtProducto.Text = "";
-            txtPrecioUnitario.Text = "";
-            txtCantidad.Text = "";
+           /// txtProductoCod.Text = "";
+          //  txtProducto.Text = "";
+          //  txtPrecioUnitario.Text = "";
+          //  txtCantidad.Text = "";
             txtSubtotal.Text = "";
             txtDescuento.Text = "";
             txtTotal.Text = "";
@@ -430,6 +440,53 @@ namespace AppFacturacion2024
         private void label4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dtListaProdutos_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                try
+                {
+                    if (!int.TryParse(e.FormattedValue.ToString(), out int cantidad) || cantidad < 0)
+                    {
+                        e.Cancel = true;
+                        MessageBox.Show("Por favor, ingrese un número entero válido para la cantidad.");
+                    }
+                }
+                catch (Exception ne)
+                {
+                   
+                    MessageBox.Show(ne.Message);
+                }
+            }
+        }
+
+        private void dtListaProdutos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                try {
+                    // Obtener la fila actual
+                    var row = dtListaProdutos.Rows[e.RowIndex];
+
+                    int cantidad = Convert.ToInt32(row.Cells[4].Value);
+                    decimal precioUnitario = Convert.ToDecimal(row.Cells[3].Value, CultureInfo.InvariantCulture);
+
+                    row.Cells[5].Value = (cantidad * precioUnitario).ToString("N2");
+                    Calcular_Subtotal();
+                }
+                catch(Exception ne)
+                {
+                    
+                }
+                    
+            }
+        }
+
+        private void dtListaProdutos_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            Calcular_Subtotal();
         }
     }
 }

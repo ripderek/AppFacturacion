@@ -23,7 +23,10 @@ namespace AppFacturacion2024
             accion_ = acccion;
             dtListaClientes.KeyDown += new KeyEventHandler(dtListaClientes_KeyDown);
             dtListaClientes.CellEnter += new DataGridViewCellEventHandler(dtListaClientes_CellEnter);
-            if (veropciones) panelOpciones.Visible = true;
+            // if (veropciones) panelOpciones.Visible = true;
+            panelOpciones.Visible = true;
+            cmbBuscar.SelectedIndex = 1;
+            txtBuscar.Select();
         }
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -32,13 +35,14 @@ namespace AppFacturacion2024
         private void ConsultaClientesLista()
         {
             
-            DataTable dataTable = obj_clientes.Listar_Clientes();
-            LlenarGrid(dataTable);
+           // DataTable dataTable = obj_clientes.Listar_Clientes();
+            //LlenarGrid(dataTable);
         }
 
         private void ConsultaClientes_Load(object sender, EventArgs e)
         {
-            ConsultaClientesLista();
+            //ConsultaClientesLista();
+            txtBuscar.Select();
         }
 
         private void dtListaClientes_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -54,10 +58,11 @@ namespace AppFacturacion2024
                         //aqui se debe tomar los datos para abrir una nueva ventana si en caso quiere actualizar la linea 
                         menuOpciones.Show(Cursor.Position);
                         DataGridViewRow row = dtListaClientes.Rows[e.RowIndex];
-                        obj_clientes.IDENTIFICACION_ = row.Cells[0].Value.ToString();
-                        obj_clientes.NOMBRES_ = row.Cells[1].Value.ToString();
-                        obj_clientes.CORREO_ = row.Cells[2].Value.ToString();
-                        obj_clientes.TELEFONO_ = row.Cells[3].Value.ToString();
+                        obj_clientes.CLIENTE_ID_ = int.Parse(row.Cells[0].Value.ToString());
+                        obj_clientes.IDENTIFICACION_ = row.Cells[1].Value.ToString();
+                        obj_clientes.NOMBRES_ = row.Cells[2].Value.ToString();
+                        obj_clientes.CORREO_ = row.Cells[3].Value.ToString();
+                        obj_clientes.TELEFONO_ = row.Cells[4].Value.ToString();
                     }
                 }
                 catch (Exception en)
@@ -71,20 +76,26 @@ namespace AppFacturacion2024
         {
             CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(true);
             ventana_crear_editar_clientes.ShowDialog();
-            ConsultaClientesLista();
+            //ConsultaClientesLista();
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(false, obj_clientes.IDENTIFICACION_, obj_clientes.NOMBRES_, obj_clientes.CORREO_, obj_clientes.TELEFONO_);
+            CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(false, obj_clientes.IDENTIFICACION_, obj_clientes.NOMBRES_, obj_clientes.CORREO_, obj_clientes.TELEFONO_ , obj_clientes.CLIENTE_ID_);
             ventana_crear_editar_clientes.ShowDialog();
-            ConsultaClientesLista();
+            //ConsultaClientesLista();
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             obj_clientes.Eliminar_Cliente();
-            ConsultaClientesLista();
+            //ConsultaClientesLista();
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
         public string ClienteID { get; private set; }
         public string ClienteNombre { get; private set; }
@@ -97,10 +108,10 @@ namespace AppFacturacion2024
                 if (e.RowIndex >= 0)
                 {
                     // Obtén la información del cliente desde la fila seleccionada en el DataGridView usando los índices de las columnas
-                    ClienteID = dtListaClientes.Rows[e.RowIndex].Cells[0].Value.ToString(); // Índice 0 para la columna ID
-                    ClienteNombre = dtListaClientes.Rows[e.RowIndex].Cells[1].Value.ToString(); // Índice 1 para la columna Nombre
+                    ClienteID = dtListaClientes.Rows[e.RowIndex].Cells[5].Value.ToString(); // Índice 0 para la columna ID
+                    ClienteNombre = dtListaClientes.Rows[e.RowIndex].Cells[2].Value.ToString(); // Índice 1 para la columna Nombre
                     //ClienteIdentificacion = dtListaClientes.Rows[e.RowIndex].Cells[2].Value.ToString(); // Índice 1 para la columna Nombre
-                    ClienteCorreo = dtListaClientes.Rows[e.RowIndex].Cells[2].Value.ToString(); // Índice 1 para la columna Nombre
+                    ClienteCorreo = dtListaClientes.Rows[e.RowIndex].Cells[3].Value.ToString(); // Índice 1 para la columna Nombre
 
                     this.DialogResult = DialogResult.OK;
                     // Cierra el formulario de clientes
@@ -114,9 +125,8 @@ namespace AppFacturacion2024
         {
             if (e.Control && e.KeyCode == Keys.B)
             {
-                txtBuscador.Visible = true;
-                txtBuscador.BringToFront();
-                txtBuscador.Focus();
+                txtBuscar.Focus();
+                txtBuscar.Select();
             }
             if (e.Control && e.KeyCode == Keys.R)
             {
@@ -164,6 +174,31 @@ namespace AppFacturacion2024
                 }
                 e.Handled = true; // Indica que el evento ha sido manejado
             }
+
+            //para aceptar dando enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (accion_)
+                {
+                    // Verifica si hay una fila seleccionada en el DataGridView
+                    if (dtListaClientes.CurrentRow != null)
+                    {
+                        int rowIndex = dtListaClientes.CurrentRow.Index;
+
+                        // Obtén la información del cliente desde la fila seleccionada en el DataGridView usando los índices de las columnas
+                        ClienteID = dtListaClientes.Rows[rowIndex].Cells[5].Value.ToString(); // Índice 0 para la columna ID
+                        ClienteNombre = dtListaClientes.Rows[rowIndex].Cells[2].Value.ToString(); // Índice 1 para la columna Nombre
+                        ClienteCorreo = dtListaClientes.Rows[rowIndex].Cells[3].Value.ToString(); // Índice 2 para la columna PrecioUnitario
+
+                        this.DialogResult = DialogResult.OK;
+                        // Cierra el formulario
+                        this.Close();
+                    }
+                }
+            }
+
+           
+
         }
         private int currentRowIndex;
         private int currentColumnIndex;
@@ -178,7 +213,9 @@ namespace AppFacturacion2024
         {
             CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(true);
             ventana_crear_editar_clientes.ShowDialog();
-            ConsultaClientesLista();
+            //ConsultaClientesLista();
+            if (txtBuscar.Text.Length != 0)
+                Buscador();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

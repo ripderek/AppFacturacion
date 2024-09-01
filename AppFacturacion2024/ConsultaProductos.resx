@@ -135,9 +135,6 @@
         +F+zf1GTyQ+x5MkQBr1tegAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="menuOpciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>589, 18</value>
-  </metadata>
   <data name="btnBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -153,4 +150,7 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="menuOpciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>589, 18</value>
+  </metadata>
 </root>

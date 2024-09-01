@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppFacturacion.exe" size="924688">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppFacturacion.exe" size="925712">
       <assemblyIdentity name="AppFacturacion" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O46ICkRHU6SPSCC6jBHi5XT4LyS15UP7+C9gqYmbe34=</dsig:DigestValue>
+        <dsig:DigestValue>Jl6qt1BrMp9M0XtiJ2nj3l/x4CElGD2h6FPgs7bHitU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

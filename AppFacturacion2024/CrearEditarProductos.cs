@@ -35,23 +35,50 @@ namespace AppFacturacion2024
                 txtPrecioUnitario.Text = PRECIO_UNITARIO;  
             }
             accion_ = accion;
-        }
+            txtProductos.KeyDown += new KeyEventHandler(TeclaEnter);
+            txtPrecioUnitario.KeyDown += new KeyEventHandler(TeclaEnter);
 
-        private void txtAceptar_Click(object sender, EventArgs e)
+        }
+        private void TeclaEnter(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CrearEditarProducto();
+
+            }
+        }
+        private void CrearEditarProducto() {
+            string precio = txtPrecioUnitario.Text.Trim();
+            precio = precio.Replace(',', '.');
+            decimal numero;
+
+            if (precio.Length == 0)
+            {
+                MessageBox.Show("El precio no puede estar vacio");
+                return;
+            }
+            if (!decimal.TryParse(precio, NumberStyles.Any, CultureInfo.InvariantCulture, out numero))
+            {
+                MessageBox.Show("Por favor, ingrese un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             objProducto.PRODUCTO_ = txtProductos.Text;
-            objProducto.PRECIO_UNITARIO_ = txtPrecioUnitario.Text;
+            objProducto.PRECIO_UNITARIO_ = precio;
             objProducto.CODIGO_ = txtCodigoProducto.Text;
             if (accion_)
             {
-                bool completado= objProducto.CrearProducto();
-                if (completado) this.Close(); 
+                bool completado = objProducto.CrearProducto();
+                if (completado) this.Close();
             }
             else
             {
                 bool completado = objProducto.Editar_Producto();
                 if (completado) this.Close();
             }
+        }
+        private void txtAceptar_Click(object sender, EventArgs e)
+        {
+            CrearEditarProducto();
         }
     }
 }
