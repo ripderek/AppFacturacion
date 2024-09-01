@@ -38,6 +38,10 @@ namespace AppFacturacion2024.Clases
              };
 
             ConcatenacionCadena(sql, parametros);
+            if (TransaccionCompleta)
+            {
+                MessageBox.Show("Producto creado");
+            }
             return TransaccionCompleta;
         }
         //funcion para editar PRODUCTO
@@ -56,6 +60,10 @@ namespace AppFacturacion2024.Clases
              };
 
             ConcatenacionCadena(sql, parametros);
+            if (TransaccionCompleta)
+            {
+                MessageBox.Show("Producto Editado");
+            }
             return TransaccionCompleta;
         }
         //funcion para eliminar el PRODUCTO 
@@ -72,6 +80,10 @@ namespace AppFacturacion2024.Clases
              };
 
             ConcatenacionCadena(sql, parametros);
+            if (TransaccionCompleta)
+            {
+                MessageBox.Show("Producto Eliminado");
+            }
         }
         public DataTable Listar_Productos()
         {

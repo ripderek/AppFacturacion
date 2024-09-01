@@ -147,6 +147,7 @@
             this.cmbBuscar.Name = "cmbBuscar";
             this.cmbBuscar.Size = new System.Drawing.Size(121, 21);
             this.cmbBuscar.TabIndex = 16;
+            this.cmbBuscar.TabStop = false;
             // 
             // menuOpciones
             // 
@@ -173,6 +174,7 @@
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(293, 31);
             this.txtBuscador.TabIndex = 9;
+            this.txtBuscador.TabStop = false;
             this.txtBuscador.Visible = false;
             this.txtBuscador.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscador_KeyDown);
             // 

@@ -155,7 +155,6 @@ namespace AppFacturacion2024
      );
             ventana_crear_editar_usuario.ShowDialog();
             //ConsultaUsuarioLista();
-            if (txtBuscar.Text.Length != 0)
                 Buscador();
         }
 
@@ -173,7 +172,6 @@ namespace AppFacturacion2024
                 {
                     Usuario.EliminarUsuario();
                     //ConsultaUsuarioLista();
-                    if (txtBuscar.Text.Length != 0)
                         Buscador();
                 }
                 catch (Exception ex)
@@ -189,7 +187,6 @@ namespace AppFacturacion2024
             ventana_crear_editar_usuarios.ShowDialog();
             //ConsultaUsuarioLista();
             //refrescar los resultados de la busquedas si esque el cuadro de texto de busqueda contenia algo 
-            if (txtBuscar.Text.Length != 0)
                 Buscador();
         }
         private void LlenarGrid(DataTable dataTable)

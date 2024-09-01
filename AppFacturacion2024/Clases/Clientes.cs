@@ -43,6 +43,10 @@ namespace AppFacturacion2024.Clases
              };
 
             ConcatenacionCadena(sql, parametros);
+            if (TransaccionCompleta)
+            {
+                MessageBox.Show("Cliente Creado");
+            }
             return TransaccionCompleta;
         }
         //funcion para editar el cliente
@@ -60,6 +64,10 @@ namespace AppFacturacion2024.Clases
                   new System.Data.SqlClient.SqlParameter("@ID_Per", CLIENTE_ID_),
              };
             ConcatenacionCadena(sql, parametros);
+            if (TransaccionCompleta)
+            {
+                MessageBox.Show("Cliente Editado");
+            }
             return TransaccionCompleta;
         }
         //funcion para eliminar el cliente 
@@ -73,6 +81,10 @@ namespace AppFacturacion2024.Clases
                   new System.Data.SqlClient.SqlParameter("@Persona_ID", CLIENTE_ID_),
              };
             ConcatenacionCadena(sql, parametros);
+            if (TransaccionCompleta)
+            {
+                MessageBox.Show("Cliente Eliminado");
+            }
         }
         //funcion para listar los clientes 
 

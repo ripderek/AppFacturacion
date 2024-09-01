@@ -21,17 +21,20 @@ namespace AppFacturacion2024
             InitializeComponent();
             this.KeyPreview = true;
             accion_ = accion;
+            txtBuscar.Select();
+            txtBuscar.Focus();
+            cmbBuscar.SelectedIndex = 1;
         }
 
         private void ConsultaFacturasLista()
         {
-            DataTable dataTable = obj_facturas.Listar_Facturas();
-            LlenarGrid(dataTable);
+            //DataTable dataTable = obj_facturas.Listar_Facturas();
+            //LlenarGrid(dataTable);
         }
 
         private void ConsultaFacturas_Load(object sender, EventArgs e)
         {
-            ConsultaFacturasLista();
+           // ConsultaFacturasLista();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,8 +44,21 @@ namespace AppFacturacion2024
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            obj_facturas.Eliminar_Factura();
-            ConsultaFacturasLista();
+            if (MessageBox.Show("¿Estás seguro de que deseas eliminar esta factura?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    obj_facturas.Eliminar_Factura();
+                    //ConsultaFacturasLista();
+                    Buscador();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+           
         }
 
         private void dtLisaFacturas_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -97,17 +113,18 @@ namespace AppFacturacion2024
         }
 
         private void ConsultaFacturas_KeyDown(object sender, KeyEventArgs e)
-        {
+        {/*
             if (e.Control && e.KeyCode == Keys.B)
             {
                 txtBuscador.Visible = true;
                 txtBuscador.BringToFront();
                 txtBuscador.Focus();
             }
+           
             if (e.Control && e.KeyCode == Keys.R)
             {
                 ConsultaFacturasLista();
-            }
+            }*/
             if (e.KeyCode == Keys.Escape)
                 this.Close();
         }

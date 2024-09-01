@@ -77,8 +77,7 @@ namespace AppFacturacion2024
             CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(true);
             ventana_crear_editar_clientes.ShowDialog();
             //ConsultaClientesLista();
-            if (txtBuscar.Text.Length != 0)
-                Buscador();
+            Buscador();
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,18 +85,29 @@ namespace AppFacturacion2024
             CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(false, obj_clientes.IDENTIFICACION_, obj_clientes.NOMBRES_, obj_clientes.CORREO_, obj_clientes.TELEFONO_ , obj_clientes.CLIENTE_ID_);
             ventana_crear_editar_clientes.ShowDialog();
             //ConsultaClientesLista();
-            if (txtBuscar.Text.Length != 0)
                 Buscador();
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            obj_clientes.Eliminar_Cliente();
-            //ConsultaClientesLista();
-            if (txtBuscar.Text.Length != 0)
-                Buscador();
+
+            if (MessageBox.Show("¿Estás seguro de que deseas eliminar este cliente?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    obj_clientes.Eliminar_Cliente();
+                    //ConsultaClientesLista();
+                    Buscador();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+           
         }
-        public string ClienteID { get; private set; }
+        public int ClienteID { get; private set; }
         public string ClienteNombre { get; private set; }
         public string ClienteIdentificacion { get; private set; }
         public string ClienteCorreo { get; private set; }
@@ -108,11 +118,9 @@ namespace AppFacturacion2024
                 if (e.RowIndex >= 0)
                 {
                     // Obtén la información del cliente desde la fila seleccionada en el DataGridView usando los índices de las columnas
-                    ClienteID = dtListaClientes.Rows[e.RowIndex].Cells[5].Value.ToString(); // Índice 0 para la columna ID
-                    ClienteNombre = dtListaClientes.Rows[e.RowIndex].Cells[2].Value.ToString(); // Índice 1 para la columna Nombre
-                    //ClienteIdentificacion = dtListaClientes.Rows[e.RowIndex].Cells[2].Value.ToString(); // Índice 1 para la columna Nombre
-                    ClienteCorreo = dtListaClientes.Rows[e.RowIndex].Cells[3].Value.ToString(); // Índice 1 para la columna Nombre
-
+                    ClienteID = int.Parse(dtListaClientes.Rows[e.RowIndex].Cells[5].Value.ToString()); 
+                    ClienteNombre = dtListaClientes.Rows[e.RowIndex].Cells[2].Value.ToString(); 
+                    ClienteCorreo = dtListaClientes.Rows[e.RowIndex].Cells[3].Value.ToString(); 
                     this.DialogResult = DialogResult.OK;
                     // Cierra el formulario de clientes
                     this.Close();
@@ -186,7 +194,7 @@ namespace AppFacturacion2024
                         int rowIndex = dtListaClientes.CurrentRow.Index;
 
                         // Obtén la información del cliente desde la fila seleccionada en el DataGridView usando los índices de las columnas
-                        ClienteID = dtListaClientes.Rows[rowIndex].Cells[5].Value.ToString(); // Índice 0 para la columna ID
+                        ClienteID = int.Parse(dtListaClientes.Rows[rowIndex].Cells[5].Value.ToString()); // Índice 0 para la columna ID
                         ClienteNombre = dtListaClientes.Rows[rowIndex].Cells[2].Value.ToString(); // Índice 1 para la columna Nombre
                         ClienteCorreo = dtListaClientes.Rows[rowIndex].Cells[3].Value.ToString(); // Índice 2 para la columna PrecioUnitario
 
@@ -214,7 +222,6 @@ namespace AppFacturacion2024
             CrearEditarClientes ventana_crear_editar_clientes = new CrearEditarClientes(true);
             ventana_crear_editar_clientes.ShowDialog();
             //ConsultaClientesLista();
-            if (txtBuscar.Text.Length != 0)
                 Buscador();
         }
 

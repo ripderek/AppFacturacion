@@ -51,6 +51,10 @@ namespace AppFacturacion2024.Clases
                   new System.Data.SqlClient.SqlParameter("@FacturaXml", XML_Factura1),
              };
             ConcatenacionCadena(sql, parametros);
+            if (TransaccionCompleta)
+            {
+                MessageBox.Show("Factura registrada");
+            }
         }
         public void Eliminar_Factura()
         {
@@ -62,11 +66,12 @@ namespace AppFacturacion2024.Clases
                   new System.Data.SqlClient.SqlParameter("@COD_FACTURA", COD_FACTURA_),
              };
             ConcatenacionCadena(sql, parametros);
+            if (TransaccionCompleta)
+            {
+                MessageBox.Show("Factura Eliminada");
+            }
         }
-        public void Listar_Cod_Factura()
-        {
-            ConcatenacionCadena("SP_Listar_Cod_Factura");
-        }
+     
         public DataTable Listar_Facturas()
         {
             return Cargar_Data_Table("SP_ListarFacturas;");
@@ -83,14 +88,14 @@ namespace AppFacturacion2024.Clases
             return ObtenerXML(sql, parametros);
         }
         //funcion que devuelve la ultima factura genera por el cliente 
-        public int ObtenerUltimaFactura(string CodCliente)
+        public int ObtenerUltimaFactura(int ID_CLIENTE)
         {
             //return int.Parse(ObtenerXML("EXEC SP_UltimaFacturaCliete '" + CodCliente + "'"));
             string sql = "SP_UltimaFacturaCliete";
 
             var parametros = new List<System.Data.SqlClient.SqlParameter>
                 {
-                  new System.Data.SqlClient.SqlParameter("@CodigoCliente", CodCliente)
+                  new System.Data.SqlClient.SqlParameter("@ID_CLIENTE", ID_CLIENTE)
                 };
             return int.Parse(ObtenerXML(sql, parametros));
         }
