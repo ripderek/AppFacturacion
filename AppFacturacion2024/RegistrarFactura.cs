@@ -20,7 +20,7 @@ namespace AppFacturacion2024
         {
             InitializeComponent();
         }
-
+        private int ClienteID = 0;
         private void btnAñadirCliente_Click(object sender, EventArgs e)
         {
  
@@ -29,8 +29,8 @@ namespace AppFacturacion2024
             {
                 if (frmClientes.ShowDialog() == DialogResult.OK)
                 {
-                 
-                    txtCodigoCliente.Text = frmClientes.ClienteID;
+
+                    ClienteID = frmClientes.ClienteID;
                     txtCorreo.Text = frmClientes.ClienteCorreo;
                     txtNombre.Text = frmClientes.ClienteNombre;
                     //txtIdentificacion.Text = frmClientes.ClienteIdentificacion;
@@ -47,18 +47,20 @@ namespace AppFacturacion2024
                 {
                     //hay una funcion que verifica si el producto ya se encuentra en el datagridview
                     //verificar si el producto ya se encuentra dentro del datagriview
-                    /*
-                    if (VerificarIDproducto(txtProductoCod.Text))
+                    
+                    if (VerificarIDproducto(frmProductos.CodigoProducto))
                     {
-                        MessageBox.Show("El producto ya se encuentra registado en la factura");
+                        MessageBox.Show("El producto ya se encuentra en la lista");
+                        return;
                     }
-                    */
+                   
                     //aqui enviar al datagridview directamente y realizar los calculos
    
                     dtListaProdutos.Rows.Add((dtListaProdutos.Rows.Count + 1).ToString(), frmProductos.CodigoProducto, frmProductos.ProductoNombre, frmProductos.PrecioUnitario,1, (1 * decimal.Parse(frmProductos.PrecioUnitario, CultureInfo.InvariantCulture)).ToString("N2"));
                     limpiar_controles();
                     //Calcular el subtotal sin descuento 
                     Calcular_Subtotal();
+                    CalcularIVA();
                 }
             }
         }
@@ -140,28 +142,38 @@ namespace AppFacturacion2024
         }
         private void CalcularIVA()
         {
-            // Reemplazar comas por puntos en el texto del Subtotal y Descuento
-            string subtotalText = txtSubtotal.Text.Replace(',', '.');
-            string descuentoText = txtDescuento.Text.Replace(',', '.');
-
-            decimal precioDeVenta = decimal.Parse(subtotalText, System.Globalization.CultureInfo.InvariantCulture);
-            decimal descuento = 0;
-
-            // Controlar el descuento si el texto de descuento no está vacío y es un número válido
-            if (!string.IsNullOrWhiteSpace(descuentoText) && double.TryParse(descuentoText, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out _))
+            try
             {
-                descuento = decimal.Parse(descuentoText, System.Globalization.CultureInfo.InvariantCulture);
-                if (descuento >= 0)
-                    //precioDeVenta -= descuento;
-                    precioDeVenta = precioDeVenta - ((precioDeVenta * descuento) / 100);
+
+
+                // Reemplazar comas por puntos en el texto del Subtotal y Descuento
+                string subtotalText = txtSubtotal.Text.Replace(',', '.');
+                string descuentoText = txtDescuento.Text.Replace(',', '.');
+
+                decimal precioDeVenta = decimal.Parse(subtotalText, System.Globalization.CultureInfo.InvariantCulture);
+                decimal descuento = 0;
+
+                // Controlar el descuento si el texto de descuento no está vacío y es un número válido
+                if (!string.IsNullOrWhiteSpace(descuentoText) && double.TryParse(descuentoText, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out _))
+                {
+                    descuento = decimal.Parse(descuentoText, System.Globalization.CultureInfo.InvariantCulture);
+                    if (descuento >= 0)
+                        //precioDeVenta -= descuento;
+                        precioDeVenta = precioDeVenta - ((precioDeVenta * descuento) / 100);
+                }
+
+                decimal tasaDeIVA = 0.15m;
+                decimal baseImponible = precioDeVenta;
+                decimal iva = baseImponible * tasaDeIVA;
+                decimal precioTotalConIVA = baseImponible + iva;
+                txtDescuento.Text = decimal.Parse(descuentoText, System.Globalization.CultureInfo.InvariantCulture).ToString("N2");
+                txtTotal.Text = precioTotalConIVA.ToString("N2");
+            }
+            catch (Exception ex)
+            {
+
             }
 
-            decimal tasaDeIVA = 0.15m;
-            decimal baseImponible = precioDeVenta;
-            decimal iva = baseImponible * tasaDeIVA;
-            decimal precioTotalConIVA = baseImponible + iva;
-            txtDescuento.Text =decimal.Parse(descuentoText, System.Globalization.CultureInfo.InvariantCulture).ToString("N2");
-            txtTotal.Text = precioTotalConIVA.ToString("N2");
         }
 
 
@@ -284,14 +296,14 @@ namespace AppFacturacion2024
             {
                 if (DataGridViewNoEstaVacio())
                 {
-                    //aqui enviar la factura 
-                    string XML = ConstruirXmlFactura();
-                    System.Console.WriteLine(XML);
-                    objFactura.XML_Factura1 = XML;
-                    objFactura.CrearFactura();
-                    VerFacturaGenerada();
-                    Limpiar();
-                    //funcion para ver la factura generada;
+                        //aqui enviar la factura 
+                        string XML = ConstruirXmlFactura();
+                        System.Console.WriteLine(XML);
+                        objFactura.XML_Factura1 = XML;
+                        objFactura.CrearFactura();
+                        VerFacturaGenerada();
+                        Limpiar();
+                        //funcion para ver la factura generada;
                 }
                 else
                     MessageBox.Show("La factura esta incompleta, {se esperaba el detalle}");
@@ -304,8 +316,11 @@ namespace AppFacturacion2024
         //verficar que el codigo del cliente no este en blaco 
         private bool verificarCOdeUser()
         {
+            /*
             if (string.IsNullOrWhiteSpace(txtCodigoCliente.Text))
                 return false;
+            return true;
+            */
             return true;
         }
         private bool DataGridViewNoEstaVacio( )
@@ -346,18 +361,8 @@ namespace AppFacturacion2024
             XmlElement cliente = doc.CreateElement("Cliente");
             root.AppendChild(cliente);
 
-            // Añadir elementos de Cliente
-            XmlElement nombre = doc.CreateElement("Nombre");
-            nombre.InnerText = txtNombre.Text;
-            cliente.AppendChild(nombre);
-
-            XmlElement identificacion = doc.CreateElement("Identificacion");
-            identificacion.InnerText = txtCodigoCliente.Text;
-            cliente.AppendChild(identificacion);
-
-
-            XmlElement correo = doc.CreateElement("Correo");
-            correo.InnerText = txtCorreo.Text;
+            XmlElement correo = doc.CreateElement("UsuarioCliente");
+            correo.InnerText = ClienteID.ToString();
             cliente.AppendChild(correo);
 
             //Descuento asignado
@@ -373,7 +378,7 @@ namespace AppFacturacion2024
             cliente.AppendChild(descuento);
 
             XmlElement usuariovendedor = doc.CreateElement("UsuarioVendedor");
-            usuariovendedor.InnerText = ManejoSesion.Instance.UsuarioVendedor;
+            usuariovendedor.InnerText = Usuario.id_usuario.ToString();
             cliente.AppendChild(usuariovendedor);
 
 
@@ -417,22 +422,22 @@ namespace AppFacturacion2024
         private void Limpiar()
         {
             dtListaProdutos.Rows.Clear();
-            txtCodigoCliente.Text = "";
+            //txtCodigoCliente.Text = "";
             txtCorreo.Text = "";
             txtNombre.Text = "";
            /// txtProductoCod.Text = "";
           //  txtProducto.Text = "";
           //  txtPrecioUnitario.Text = "";
           //  txtCantidad.Text = "";
-            txtSubtotal.Text = "";
-            txtDescuento.Text = "";
-            txtTotal.Text = "";
+            txtSubtotal.Text = "0";
+            txtDescuento.Text = "0";
+            txtTotal.Text = "0";
         }
         //ver la factura recien generada 
         private void VerFacturaGenerada()
         {
             //obtener la ultima factura generada del cliente skere modo diablo
-            int ultimaFactura = objFactura.ObtenerUltimaFactura(txtCodigoCliente.Text);
+            int ultimaFactura = objFactura.ObtenerUltimaFactura(ClienteID);
             VizualizarFactura vizualizarFactura = new VizualizarFactura(ultimaFactura);
             vizualizarFactura.ShowDialog();
         }

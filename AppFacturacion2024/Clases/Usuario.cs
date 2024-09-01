@@ -75,6 +75,10 @@ namespace AppFacturacion2024.Clases
 
             };
             conexion.ConcatenacionCadena(sql, parametros);
+            if (conexion.TransaccionCompleta)
+            {
+                MessageBox.Show("Usuario Creado");
+            }
             return conexion.TransaccionCompleta;
         }
         static public bool EditarUsuario()  
@@ -94,6 +98,10 @@ namespace AppFacturacion2024.Clases
                 new System.Data.SqlClient.SqlParameter("@ID_TIPO_USUARIO", id_tipo_usuario),
             };
             conexion.ConcatenacionCadena(sql, parametros);
+            if (conexion.TransaccionCompleta)
+            {
+                MessageBox.Show("Usuario Editado");
+            }
             return conexion.TransaccionCompleta;
         }
         static public DataTable Listar_usuarios()
@@ -119,19 +127,17 @@ namespace AppFacturacion2024.Clases
         {
             string sql = "SP_ELIMINAR_USUARIO";
             var parametros = new List<SqlParameter>
-        {
+             {
             new SqlParameter("@ID_USUARIO", id_usuario)
-        };
+             };
 
-            try
+            conexion.ConcatenacionCadena(sql, parametros);
+
+            if (conexion.TransaccionCompleta)
             {
-                conexion.ConcatenacionCadena(sql, parametros);
-                MessageBox.Show("Usuario eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Usuario Eliminado");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al eliminar usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
         }
     }
 }

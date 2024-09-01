@@ -86,16 +86,25 @@ namespace AppFacturacion2024
             CrearEditarProductos ventana_crear_editar_productos = new CrearEditarProductos(false, obj_productos.CODIGO_, obj_productos.PRODUCTO_, obj_productos.PRECIO_UNITARIO_);
             ventana_crear_editar_productos.ShowDialog();
             //ConsultaProductosLista();
-            if (txtBuscar.Text.Length != 0)
                 Buscador();
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            obj_productos.Eliminar_Producto();
-            ConsultaProductosLista();
-            if (txtBuscar.Text.Length != 0)
-                Buscador();
+            if (MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    obj_productos.Eliminar_Producto();
+                    //ConsultaProductosLista();
+                    Buscador();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+      
         }
         public string CodigoProducto { get; private set; }
         public string ProductoNombre { get; private set; }
@@ -158,7 +167,6 @@ namespace AppFacturacion2024
             CrearEditarProductos ventana_crear_editar_productos = new CrearEditarProductos(true);
             ventana_crear_editar_productos.ShowDialog();
             //ConsultaProductosLista();
-            if (txtBuscar.Text.Length != 0)
                 Buscador();
         }
 

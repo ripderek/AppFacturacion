@@ -54,7 +54,7 @@ namespace AppFacturacion2024
 
                     // Configurar el ReportViewer
                     reportViewer1.ProcessingMode = ProcessingMode.Local;
-                    reportViewer1.LocalReport.ReportPath = "Factura.rdlc"; // Asegúrate de que la ruta sea correcta
+                    reportViewer1.LocalReport.ReportPath = "Factura.rdlc"; 
                     reportViewer1.LocalReport.DataSources.Clear();
 
                     // Establecer el DataSource del reporte

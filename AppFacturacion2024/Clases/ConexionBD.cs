@@ -130,6 +130,7 @@ namespace AppFacturacion2024.Clases
         }
         public System.Data.SqlClient.SqlDataReader EjecutarConsulta(String CadenaSQL, List<System.Data.SqlClient.SqlParameter> parametros) // = "EXEC SP_Mostrar_Clientes;"
         {
+
            // System.Data.SqlClient.SqlCommand oCommand = new System.Data.SqlClient.SqlCommand();
             try
             {   /*

@@ -16,7 +16,8 @@ namespace AppFacturacion2024
         public Form1()
         {
             InitializeComponent();
-            txtUsuario.Text = Usuario.usuario;
+            //txtUsuario.Text = Usuario.usuario;
+            txtUsuario.Text = Usuario.id_usuario.ToString();
             txtNombreUsuario.Text =Usuario.nombres;
             txtUsuarioTipo.Text = Usuario.tipo;
             //aqui colocar un switch para controlar los tipos de usuario para mostar las opciones del menu
