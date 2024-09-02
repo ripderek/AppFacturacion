@@ -15,12 +15,17 @@ namespace AppFacturacion2024.Clases
         private string PRODUCTO;
         private string PRECIO_UNITARIO;
         private string ESTADO;
-
+        private int PROVEEDOR_ID;
+        private string PROVEEDOR_NAME;
 
         public string CODIGO_ {  get => CODIGO; set => CODIGO = value ; }
         public string PRODUCTO_ { get => PRODUCTO; set => PRODUCTO = value; }
         public string PRECIO_UNITARIO_ {  get => PRECIO_UNITARIO; set =>  PRECIO_UNITARIO = value;}
         public string ESTADO_ {  get => ESTADO; set => ESTADO = value; }
+
+        public int PROVEEDOR_ID_ { get => PROVEEDOR_ID; set => PROVEEDOR_ID = value; }
+
+        public string PROVEEDOR_NAME_ { get => PROVEEDOR_NAME; set => PROVEEDOR_NAME = value; }
 
         //FUNCION PARA LISTAR LOS CLIENTES
 
@@ -34,7 +39,8 @@ namespace AppFacturacion2024.Clases
             var parametros = new List<System.Data.SqlClient.SqlParameter>
                 {
                   new System.Data.SqlClient.SqlParameter("@Producto", PRODUCTO_),
-                  new System.Data.SqlClient.SqlParameter("@Precio_unitario", PRECIO_UNITARIO_)
+                  new System.Data.SqlClient.SqlParameter("@Precio_unitario", PRECIO_UNITARIO_),
+                  new System.Data.SqlClient.SqlParameter("@Proveedor_ID", PROVEEDOR_ID_)
              };
 
             ConcatenacionCadena(sql, parametros);
@@ -56,7 +62,8 @@ namespace AppFacturacion2024.Clases
                 {
                   new System.Data.SqlClient.SqlParameter("@Codigo", CODIGO_),
                   new System.Data.SqlClient.SqlParameter("@Producto", PRODUCTO_),
-                  new System.Data.SqlClient.SqlParameter("@Precio_Unitario", PRECIO_UNITARIO_)
+                  new System.Data.SqlClient.SqlParameter("@Precio_Unitario", PRECIO_UNITARIO_),
+                  new System.Data.SqlClient.SqlParameter("@Proveedor_ID", PROVEEDOR_ID_)
              };
 
             ConcatenacionCadena(sql, parametros);

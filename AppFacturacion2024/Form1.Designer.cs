@@ -40,6 +40,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelOPCIONES = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.MenuUsuarios = new System.Windows.Forms.Panel();
+            this.btnConsultarUsuarios = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
             this.MenuFacturas = new System.Windows.Forms.Panel();
             this.btnImprimirFactura = new System.Windows.Forms.Button();
             this.btnRegistrarFactura = new System.Windows.Forms.Button();
@@ -52,18 +55,19 @@
             this.btnImprimirListaClientes = new System.Windows.Forms.Button();
             this.btnConsultaClientes = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.MenuUsuarios = new System.Windows.Forms.Panel();
-            this.btnConsultarUsuarios = new System.Windows.Forms.Button();
-            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.MenuProveedores = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.MenuUsuarios.SuspendLayout();
             this.MenuFacturas.SuspendLayout();
             this.MenuProductos.SuspendLayout();
             this.MenuClientes.SuspendLayout();
-            this.MenuUsuarios.SuspendLayout();
+            this.MenuProveedores.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -155,6 +159,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(231)))), ((int)(((byte)(220)))));
+            this.panelMenu.Controls.Add(this.MenuProveedores);
+            this.panelMenu.Controls.Add(this.button2);
             this.panelMenu.Controls.Add(this.MenuUsuarios);
             this.panelMenu.Controls.Add(this.btnUsuarios);
             this.panelMenu.Controls.Add(this.MenuFacturas);
@@ -169,6 +175,61 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(196, 647);
             this.panelMenu.TabIndex = 3;
+            // 
+            // MenuUsuarios
+            // 
+            this.MenuUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(140)))), ((int)(((byte)(127)))));
+            this.MenuUsuarios.Controls.Add(this.btnConsultarUsuarios);
+            this.MenuUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuUsuarios.Location = new System.Drawing.Point(0, 483);
+            this.MenuUsuarios.Name = "MenuUsuarios";
+            this.MenuUsuarios.Size = new System.Drawing.Size(196, 50);
+            this.MenuUsuarios.TabIndex = 8;
+            this.MenuUsuarios.Visible = false;
+            // 
+            // btnConsultarUsuarios
+            // 
+            this.btnConsultarUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(140)))), ((int)(((byte)(127)))));
+            this.btnConsultarUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultarUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConsultarUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnConsultarUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultarUsuarios.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10F, System.Drawing.FontStyle.Bold);
+            this.btnConsultarUsuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnConsultarUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultarUsuarios.Image")));
+            this.btnConsultarUsuarios.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnConsultarUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.btnConsultarUsuarios.Name = "btnConsultarUsuarios";
+            this.btnConsultarUsuarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnConsultarUsuarios.Size = new System.Drawing.Size(196, 37);
+            this.btnConsultarUsuarios.TabIndex = 2;
+            this.btnConsultarUsuarios.Text = "Consultar";
+            this.btnConsultarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultarUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConsultarUsuarios.UseVisualStyleBackColor = false;
+            this.btnConsultarUsuarios.Click += new System.EventHandler(this.btnConsultarUsuarios_Click);
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
+            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold);
+            this.btnUsuarios.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 446);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnUsuarios.Size = new System.Drawing.Size(196, 37);
+            this.btnUsuarios.TabIndex = 7;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsuarios.UseVisualStyleBackColor = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // MenuFacturas
             // 
@@ -403,60 +464,60 @@
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // MenuUsuarios
+            // MenuProveedores
             // 
-            this.MenuUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(140)))), ((int)(((byte)(127)))));
-            this.MenuUsuarios.Controls.Add(this.btnConsultarUsuarios);
-            this.MenuUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MenuUsuarios.Location = new System.Drawing.Point(0, 483);
-            this.MenuUsuarios.Name = "MenuUsuarios";
-            this.MenuUsuarios.Size = new System.Drawing.Size(196, 50);
-            this.MenuUsuarios.TabIndex = 8;
-            this.MenuUsuarios.Visible = false;
+            this.MenuProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(140)))), ((int)(((byte)(127)))));
+            this.MenuProveedores.Controls.Add(this.button1);
+            this.MenuProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuProveedores.Location = new System.Drawing.Point(0, 570);
+            this.MenuProveedores.Name = "MenuProveedores";
+            this.MenuProveedores.Size = new System.Drawing.Size(196, 50);
+            this.MenuProveedores.TabIndex = 10;
+            this.MenuProveedores.Visible = false;
             // 
-            // btnConsultarUsuarios
+            // button1
             // 
-            this.btnConsultarUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(140)))), ((int)(((byte)(127)))));
-            this.btnConsultarUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultarUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsultarUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnConsultarUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultarUsuarios.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10F, System.Drawing.FontStyle.Bold);
-            this.btnConsultarUsuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnConsultarUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultarUsuarios.Image")));
-            this.btnConsultarUsuarios.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnConsultarUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.btnConsultarUsuarios.Name = "btnConsultarUsuarios";
-            this.btnConsultarUsuarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnConsultarUsuarios.Size = new System.Drawing.Size(196, 37);
-            this.btnConsultarUsuarios.TabIndex = 2;
-            this.btnConsultarUsuarios.Text = "Consultar";
-            this.btnConsultarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultarUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConsultarUsuarios.UseVisualStyleBackColor = false;
-            this.btnConsultarUsuarios.Click += new System.EventHandler(this.btnConsultarUsuarios_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(140)))), ((int)(((byte)(127)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(196, 37);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Consultar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnUsuarios
+            // button2
             // 
-            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
-            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold);
-            this.btnUsuarios.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
-            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(0, 446);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnUsuarios.Size = new System.Drawing.Size(196, 37);
-            this.btnUsuarios.TabIndex = 7;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUsuarios.UseVisualStyleBackColor = false;
-            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 533);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(196, 37);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Proveedores";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -477,10 +538,11 @@
             this.statusStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
+            this.MenuUsuarios.ResumeLayout(false);
             this.MenuFacturas.ResumeLayout(false);
             this.MenuProductos.ResumeLayout(false);
             this.MenuClientes.ResumeLayout(false);
-            this.MenuUsuarios.ResumeLayout(false);
+            this.MenuProveedores.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,6 +575,9 @@
         private System.Windows.Forms.Panel MenuUsuarios;
         private System.Windows.Forms.Button btnConsultarUsuarios;
         private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.Panel MenuProveedores;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

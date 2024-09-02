@@ -128,5 +128,15 @@ namespace AppFacturacion2024
             AbrirFormulario(new ConsultaUsuario());
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            verSubmenu(MenuProveedores);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new ConsultaProveedores());
+        }
     }
 }

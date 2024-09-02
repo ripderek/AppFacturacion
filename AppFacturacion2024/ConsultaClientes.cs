@@ -48,7 +48,7 @@ namespace AppFacturacion2024
         private void dtListaClientes_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
            
-                if (e.Button == MouseButtons.Right && !accion_)
+           if (e.Button == MouseButtons.Right)
             {
                 try
                 {
@@ -59,10 +59,10 @@ namespace AppFacturacion2024
                         menuOpciones.Show(Cursor.Position);
                         DataGridViewRow row = dtListaClientes.Rows[e.RowIndex];
                         obj_clientes.CLIENTE_ID_ = int.Parse(row.Cells[0].Value.ToString());
-                        obj_clientes.IDENTIFICACION_ = row.Cells[1].Value.ToString();
-                        obj_clientes.NOMBRES_ = row.Cells[2].Value.ToString();
-                        obj_clientes.CORREO_ = row.Cells[3].Value.ToString();
-                        obj_clientes.TELEFONO_ = row.Cells[4].Value.ToString();
+                        obj_clientes.IDENTIFICACION_ = row.Cells[1].Value.ToString().Trim();
+                        obj_clientes.NOMBRES_ = row.Cells[2].Value.ToString().Trim();
+                        obj_clientes.CORREO_ = row.Cells[3].Value.ToString().Trim();
+                        obj_clientes.TELEFONO_ = row.Cells[4].Value.ToString().Trim();
                     }
                 }
                 catch (Exception en)

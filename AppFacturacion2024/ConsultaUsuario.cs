@@ -102,13 +102,13 @@ namespace AppFacturacion2024
                         DataGridViewRow row = dtListaUsuario.Rows[e.RowIndex];
 
                         Usuario.id_usuario = int.Parse(row.Cells[0].Value.ToString());
-                        Usuario.nombres = row.Cells[1].Value.ToString();
-                        Usuario.identificacion = row.Cells[2].Value.ToString();
-                        Usuario.correo = row.Cells[3].Value.ToString();
-                        Usuario.usuario = row.Cells[4].Value.ToString();
-                        Usuario.tipo = row.Cells[5].Value.ToString();
-                        Usuario.telefono = row.Cells[6].Value.ToString();
-                        Usuario.contraseña = row.Cells[7].Value.ToString();
+                        Usuario.nombres = row.Cells[1].Value.ToString().Trim();
+                        Usuario.identificacion = row.Cells[2].Value.ToString().Trim();
+                        Usuario.correo = row.Cells[3].Value.ToString().Trim();
+                        Usuario.usuario = row.Cells[4].Value.ToString().Trim();
+                        Usuario.tipo = row.Cells[5].Value.ToString().Trim();
+                        Usuario.telefono = row.Cells[6].Value.ToString().Trim();
+                        Usuario.contraseña = row.Cells[7].Value.ToString().Trim();
                     }
                 }
                 catch (Exception ex)

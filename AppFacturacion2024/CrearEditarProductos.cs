@@ -18,12 +18,14 @@ namespace AppFacturacion2024
         private bool accion_ = false;
         //si la accion es true entonces se va a crear el cliente 
         //si la accion es falsa entonces se va a editar el cliente 
-       
-        public CrearEditarProductos(bool accion, string CODIGO = "", string PRODUCTO = "", string PRECIO_UNITARIO = "")
+        private int ProveedorID=0;
+
+        public CrearEditarProductos(bool accion, string CODIGO = "", string PRODUCTO = "", string PRECIO_UNITARIO = "", string Proveedor_Name ="", int ProveedorInt=0)
         {
             InitializeComponent();
+            txtProveedor.Text = Proveedor_Name;
+            ProveedorID = ProveedorInt;
             if (accion)
-
                 lblEtiqueta.Text = "Crear Producto";
             else
             {
@@ -65,6 +67,12 @@ namespace AppFacturacion2024
             objProducto.PRODUCTO_ = txtProductos.Text;
             objProducto.PRECIO_UNITARIO_ = precio;
             objProducto.CODIGO_ = txtCodigoProducto.Text;
+            objProducto.PROVEEDOR_ID_ = ProveedorID;
+            if (ProveedorID == 0)
+            {
+                MessageBox.Show("Por favor, seleccione un proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (accion_)
             {
                 bool completado = objProducto.CrearProducto();
@@ -79,6 +87,17 @@ namespace AppFacturacion2024
         private void txtAceptar_Click(object sender, EventArgs e)
         {
             CrearEditarProducto();
+        }
+        private void btnSeleccionarProveedor_Click(object sender, EventArgs e)
+        {
+            using (ConsultaProveedores frmProveedores = new ConsultaProveedores(true))
+            {
+                if (frmProveedores.ShowDialog() == DialogResult.OK)
+                {
+                    txtProveedor.Text = frmProveedores.NombreProveedor;
+                    ProveedorID = frmProveedores.ProveedorID;
+                }
+            }
         }
     }
 }
