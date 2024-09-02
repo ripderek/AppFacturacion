@@ -35,6 +35,9 @@
             this.txtProductos = new System.Windows.Forms.TextBox();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.lblEtiqueta = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.btnSeleccionarProveedor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtAceptar
@@ -42,7 +45,7 @@
             this.txtAceptar.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.txtAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAceptar.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtAceptar.Location = new System.Drawing.Point(346, 232);
+            this.txtAceptar.Location = new System.Drawing.Point(368, 256);
             this.txtAceptar.Name = "txtAceptar";
             this.txtAceptar.Size = new System.Drawing.Size(162, 62);
             this.txtAceptar.TabIndex = 4;
@@ -110,11 +113,47 @@
             this.lblEtiqueta.TabIndex = 12;
             this.lblEtiqueta.Text = "Accion Producto";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.label3.Location = new System.Drawing.Point(30, 201);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 20);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Proveedor:";
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProveedor.Location = new System.Drawing.Point(172, 192);
+            this.txtProveedor.MaxLength = 10;
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(276, 31);
+            this.txtProveedor.TabIndex = 18;
+            // 
+            // btnSeleccionarProveedor
+            // 
+            this.btnSeleccionarProveedor.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSeleccionarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.btnSeleccionarProveedor.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnSeleccionarProveedor.Location = new System.Drawing.Point(454, 192);
+            this.btnSeleccionarProveedor.Name = "btnSeleccionarProveedor";
+            this.btnSeleccionarProveedor.Size = new System.Drawing.Size(73, 31);
+            this.btnSeleccionarProveedor.TabIndex = 20;
+            this.btnSeleccionarProveedor.Text = "->";
+            this.btnSeleccionarProveedor.UseVisualStyleBackColor = false;
+            this.btnSeleccionarProveedor.Click += new System.EventHandler(this.btnSeleccionarProveedor_Click);
+            // 
             // CrearEditarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 316);
+            this.ClientSize = new System.Drawing.Size(542, 340);
+            this.Controls.Add(this.btnSeleccionarProveedor);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtProveedor);
             this.Controls.Add(this.txtAceptar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPrecioUnitario);
@@ -139,5 +178,8 @@
         private System.Windows.Forms.TextBox txtProductos;
         private System.Windows.Forms.TextBox txtCodigoProducto;
         private System.Windows.Forms.Label lblEtiqueta;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtProveedor;
+        private System.Windows.Forms.Button btnSeleccionarProveedor;
     }
 }

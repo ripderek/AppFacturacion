@@ -683,3 +683,5 @@ C:\Users\ANNOUS SUONNA\Desktop\Nueva carpeta (2)\AppFactura_v1.1\AppFacturacion2
 C:\Users\ANNOUS SUONNA\Desktop\Nueva carpeta (2)\AppFactura_v1.1\AppFacturacion2024\obj\Debug\AppFacturacion2024.csproj.CopyComplete
 C:\Users\ANNOUS SUONNA\Desktop\Nueva carpeta (2)\AppFactura_v1.1\AppFacturacion2024\obj\Debug\AppFacturacion.exe
 C:\Users\ANNOUS SUONNA\Desktop\Nueva carpeta (2)\AppFactura_v1.1\AppFacturacion2024\obj\Debug\AppFacturacion.pdb
+C:\Users\casti\Desktop\GSCFacturacion\AppFacturacion2024\obj\Debug\AppFacturacion2024.ConsultaProveedores.resources
+C:\Users\casti\Desktop\GSCFacturacion\AppFacturacion2024\obj\Debug\AppFacturacion2024.CrearEditarProveedores.resources

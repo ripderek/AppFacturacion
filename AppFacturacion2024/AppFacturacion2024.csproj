@@ -104,6 +104,7 @@
     <Compile Include="Clases\Factura.cs" />
     <Compile Include="Clases\ManejoSesion.cs" />
     <Compile Include="Clases\Productos.cs" />
+    <Compile Include="Clases\Proveedores.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="ConsultaClientes.cs">
       <SubType>Form</SubType>
@@ -116,6 +117,12 @@
     </Compile>
     <Compile Include="ConsultaProductos.Designer.cs">
       <DependentUpon>ConsultaProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaProveedores.Designer.cs">
+      <DependentUpon>ConsultaProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsultaUsuario.cs">
       <SubType>Form</SubType>
@@ -134,6 +141,12 @@
     </Compile>
     <Compile Include="CrearEditarProductos.Designer.cs">
       <DependentUpon>CrearEditarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearEditarProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearEditarProveedores.Designer.cs">
+      <DependentUpon>CrearEditarProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="CrearEditarUsuario.cs">
       <SubType>Form</SubType>
@@ -197,6 +210,9 @@
     <EmbeddedResource Include="ConsultaProductos.resx">
       <DependentUpon>ConsultaProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaProveedores.resx">
+      <DependentUpon>ConsultaProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsultaUsuario.resx">
       <DependentUpon>ConsultaUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEditarProductos.resx">
       <DependentUpon>CrearEditarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearEditarProveedores.resx">
+      <DependentUpon>CrearEditarProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEditarUsuario.resx">
       <DependentUpon>CrearEditarUsuario.cs</DependentUpon>

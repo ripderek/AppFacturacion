@@ -47,7 +47,7 @@ namespace AppFacturacion2024
         private void dtListaProdutos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            if (e.Button == MouseButtons.Right && !accion_)
+            if (e.Button == MouseButtons.Right)
             {
                 try
                 {
@@ -57,9 +57,12 @@ namespace AppFacturacion2024
                         //aqui se debe tomar los datos para abrir una nueva ventana si en caso quiere actualizar la linea 
                         menuOpciones.Show(Cursor.Position);
                         DataGridViewRow row = dtListaProdutos.Rows[e.RowIndex];
-                        obj_productos.CODIGO_ = row.Cells[0].Value.ToString();
-                        obj_productos.PRODUCTO_ = row.Cells[1].Value.ToString();
-                        obj_productos.PRECIO_UNITARIO_ = row.Cells[2].Value.ToString();
+                        obj_productos.CODIGO_ = row.Cells[0].Value.ToString().Trim();
+                        obj_productos.PRODUCTO_ = row.Cells[1].Value.ToString().Trim();
+                        obj_productos.PRECIO_UNITARIO_ = row.Cells[2].Value.ToString().Trim();
+                        obj_productos.PROVEEDOR_ID_ =int.Parse(row.Cells[3].Value.ToString());
+                        obj_productos.PROVEEDOR_NAME_ = row.Cells[4].Value.ToString().Trim();
+
                     }
                 }
                 catch (Exception en)
@@ -83,7 +86,7 @@ namespace AppFacturacion2024
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CrearEditarProductos ventana_crear_editar_productos = new CrearEditarProductos(false, obj_productos.CODIGO_, obj_productos.PRODUCTO_, obj_productos.PRECIO_UNITARIO_);
+            CrearEditarProductos ventana_crear_editar_productos = new CrearEditarProductos(false, obj_productos.CODIGO_, obj_productos.PRODUCTO_, obj_productos.PRECIO_UNITARIO_,obj_productos.PROVEEDOR_NAME_,obj_productos.PROVEEDOR_ID_);
             ventana_crear_editar_productos.ShowDialog();
             //ConsultaProductosLista();
                 Buscador();
