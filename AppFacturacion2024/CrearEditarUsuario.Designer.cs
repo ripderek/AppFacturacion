@@ -247,7 +247,9 @@
             this.Controls.Add(this.txtIdentificacion);
             this.Controls.Add(this.txtCodigoUsuario);
             this.Controls.Add(this.lblEtiqueta);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CrearEditarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrearEditarUsuario";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CrearEditarUsuario_KeyDown);
             this.ResumeLayout(false);

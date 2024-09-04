@@ -161,6 +161,7 @@
             this.Controls.Add(this.txtProductos);
             this.Controls.Add(this.txtCodigoProducto);
             this.Controls.Add(this.lblEtiqueta);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CrearEditarProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrearEditarProductos";

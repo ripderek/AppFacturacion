@@ -184,6 +184,7 @@
             this.dtListaProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListaProveedores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListaProveedores.Location = new System.Drawing.Point(0, 55);
+            this.dtListaProveedores.MultiSelect = false;
             this.dtListaProveedores.Name = "dtListaProveedores";
             this.dtListaProveedores.ReadOnly = true;
             this.dtListaProveedores.Size = new System.Drawing.Size(792, 395);
