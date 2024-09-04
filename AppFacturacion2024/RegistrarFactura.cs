@@ -306,16 +306,18 @@ namespace AppFacturacion2024
                         //funcion para ver la factura generada;
                 }
                 else
-                    MessageBox.Show("La factura esta incompleta, {se esperaba el detalle}");
+                    MessageBox.Show("La factura esta incompleta, se esperaban los productos");
 
             }
 
             else
-                MessageBox.Show("La factura esta incompleta, {se esperaba un cliente}");
+                MessageBox.Show("La factura esta incompleta, se esperaba un cliente");
         }
         //verficar que el codigo del cliente no este en blaco 
         private bool verificarCOdeUser()
         {
+            if (ClienteID == 0)
+                return false;
             /*
             if (string.IsNullOrWhiteSpace(txtCodigoCliente.Text))
                 return false;

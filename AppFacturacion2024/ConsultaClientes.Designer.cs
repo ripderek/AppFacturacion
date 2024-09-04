@@ -211,6 +211,7 @@
             this.dtListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListaClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListaClientes.Location = new System.Drawing.Point(0, 0);
+            this.dtListaClientes.MultiSelect = false;
             this.dtListaClientes.Name = "dtListaClientes";
             this.dtListaClientes.ReadOnly = true;
             this.dtListaClientes.Size = new System.Drawing.Size(852, 474);

@@ -67,6 +67,7 @@
             this.dtLisaFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtLisaFacturas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtLisaFacturas.Location = new System.Drawing.Point(0, 0);
+            this.dtLisaFacturas.MultiSelect = false;
             this.dtLisaFacturas.Name = "dtLisaFacturas";
             this.dtLisaFacturas.ReadOnly = true;
             this.dtLisaFacturas.Size = new System.Drawing.Size(800, 380);

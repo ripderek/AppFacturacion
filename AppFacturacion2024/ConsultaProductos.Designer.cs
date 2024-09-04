@@ -187,6 +187,7 @@
             this.dtListaProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListaProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListaProdutos.Location = new System.Drawing.Point(0, 0);
+            this.dtListaProdutos.MultiSelect = false;
             this.dtListaProdutos.Name = "dtListaProdutos";
             this.dtListaProdutos.ReadOnly = true;
             this.dtListaProdutos.Size = new System.Drawing.Size(852, 468);
